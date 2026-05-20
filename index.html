@@ -221,6 +221,12 @@
             color: white;
         }
 
+        .loading-text {
+            color: var(--text-sub);
+            font-style: italic;
+            padding: 15px;
+        }
+
         /* おたよりコーナー */
         .contact-section {
             background-color: #FFF9DB;
@@ -280,8 +286,8 @@
                     💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
-                <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp" target="_blank" class="btn-spotify">
-                    <span>🎧 Spotifyで全31回を聴いてみる！</span>
+                <a href="https://open.spotify.com/show/1K54U6u8D9Y0LwI7Z5W7vF" id="btn-spotify-main" target="_blank" class="btn-spotify">
+                    <span>🎧 Spotifyで番組を聴いてみる！</span>
                 </a>
             </div>
             <div class="clear"></div>
@@ -290,7 +296,9 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0cvfNyNphMFJvcEDbmEgAp?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div id="spotify-player-container">
+                <p class="loading-text">最新のプレイヤーをロード中...</p>
+            </div>
         </section>
 
         <section id="rooms">
@@ -299,66 +307,40 @@
             <div class="room-section" style="--room-color: var(--accent-blue);">
                 <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
                 <p>地域の小さな工場や現場をデジタルでもっと便利に！IoTの活用や診断士の視点を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
-                <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第22回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第26回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第27回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第28回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第30回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第31回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                <ul class="episode-list" id="room-dx">
+                    <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-green);">
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
                 <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、現場を助けるちょっとマニアックな条件出しまで挑戦しています。</p>
-                <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第1回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第2回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第4回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第8回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第12回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第18回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                <ul class="episode-list" id="room-3d">
+                    <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
                 <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
-                <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第6回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第9回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第10回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第17回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第23回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第25回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第29回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                <ul class="episode-list" id="room-machine">
+                    <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
                 <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
-                <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第11回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第13回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第15回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第20回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第21回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第24回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                <ul class="episode-list" id="room-ai">
+                    <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: #868E96;">
                 <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
                 <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンターのクレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
-                <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第3回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第5回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第7回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第14回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第16回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第19回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                <ul class="episode-list" id="room-chat">
+                    <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
 
@@ -379,5 +361,133 @@
         <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
     </footer>
 
+    <script>
+        const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss";
+        // CORS回避用のプロキシサービスを利用してRSSを取得します
+        const API_URL = `https://api.allorigins.win/get?url=${encodeURIComponent(RSS_URL)}`;
+
+        // しょくにんさんが指定したエピソード番号の割り振りルール
+        const dxEpisodes = [22, 26, 27, 28, 30, 31];
+        const printerEpisodes = [1, 2, 4, 8, 12, 18];
+        const machineEpisodes = [6, 9, 10, 17, 23, 25, 29];
+        const aiEpisodes = [11, 13, 15, 20, 21, 24];
+        const chatEpisodes = [3, 5, 7, 14, 16, 19];
+
+        async function loadPodcastData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                // XMLデータのパース
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+                const items = xmlDoc.querySelectorAll("item");
+
+                // 各部屋のリスト要素を取得
+                const lists = {
+                    dx: document.getElementById("room-dx"),
+                    printer: document.getElementById("room-3d"),
+                    machine: document.getElementById("room-machine"),
+                    ai: document.getElementById("room-ai"),
+                    chat: document.getElementById("room-chat")
+                };
+
+                // 初期化（「読み込み中...」を消去）
+                Object.values(lists).forEach(list => list.innerHTML = "");
+
+                let isLatestSet = false;
+
+                items.forEach((item) => {
+                    const title = item.querySelector("title").textContent;
+                    const link = item.querySelector("link").textContent;
+                    
+                    // Spotify用の埋め込みURLの生成（AnchorのURLからエピソード固有のIDを判別するか、標準リンクへ対応）
+                    // プレイヤーには最新のエピソードを表示するための処理
+                    if (!isLatestSet) {
+                        setLatestPlayer(link);
+                        isLatestSet = true;
+                    }
+
+                    // タイトルから「第XX回」や「XX話」の数字を抽出
+                    const numMatch = title.match(/第?\s*(\d+)\s*[回話]/) || title.match(/#(\d+)/) || title.match(/^(\d+)\s*[\.：:-]/);
+                    let epNum = null;
+                    if (numMatch) {
+                        epNum = parseInt(numMatch[1], 10);
+                    }
+
+                    // HTML要素の作成
+                    const li = document.createElement("li");
+                    li.className = "episode-item";
+                    li.innerHTML = `
+                        <span class="episode-title">${title}</span>
+                        <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
+                    `;
+
+                    // 番号、またはタイトル内キーワードに基づいて部屋に自動振り分け
+                    if (epNum && dxEpisodes.includes(epNum)) {
+                        lists.dx.appendChild(li);
+                    } else if (epNum && printerEpisodes.includes(epNum)) {
+                        lists.printer.appendChild(li);
+                    } else if (epNum && machineEpisodes.includes(epNum)) {
+                        lists.machine.appendChild(li);
+                    } else if (epNum && aiEpisodes.includes(epNum)) {
+                        lists.ai.appendChild(li);
+                    } else if (epNum && chatEpisodes.includes(epNum)) {
+                        lists.chat.appendChild(li);
+                    } else {
+                        // 今後配信される新しい回などは、キーワード部分一致でも自動で安全に仕分ける（フォールバック）
+                        const t = title.toLowerCase();
+                        if (t.includes("dx") || t.includes("デジタル") || t.includes("診断士")) {
+                            lists.dx.appendChild(li);
+                        } else if (t.includes("3d") || t.includes("プリンタ")) {
+                            lists.printer.appendChild(li);
+                        } else if (t.includes("機械") || t.includes("旋盤") || t.includes("工具")) {
+                            lists.machine.appendChild(li);
+                        } else if (t.includes("ai") || t.includes("ディープ") || t.includes("検定")) {
+                            lists.ai.appendChild(li);
+                        } else {
+                            lists.chat.appendChild(li);
+                        }
+                    }
+                });
+
+                // 万が一、割り当てられずに空になった部屋へのメッセージ
+                Object.keys(lists).forEach(key => {
+                    if (lists[key].children.length === 0) {
+                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">このテーマの新しいエピソードを準備中です！</span></li>';
+                    }
+                });
+
+            } catch (error) {
+                console.error("ポッドキャストデータの取得に失敗しました:", error);
+                // エラー時のフォールバック表示
+                document.getElementById("spotify-player-container").innerHTML = `
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/1K54U6u8D9Y0LwI7Z5W7vF?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                `;
+            }
+        }
+
+        // 最新回のURLをSpotifyの埋め込み形式に安全にコンバートしてプレイヤーを表示する関数
+        function setLatestPlayer(anchorLink) {
+            const container = document.getElementById("spotify-player-container");
+            
+            // Anchorの個別エピソードURL、またはSpotify showのURLから、埋め込みプレイヤーを安全に生成
+            // 確実な番組全体のWeb埋め込みプレイヤーコードを初期値として設定しつつ、最適化
+            let embedUrl = "https://open.spotify.com/embed/show/1K54U6u8D9Y0LwI7Z5W7vF?utm_source=generator";
+            
+            // もしURLが直接エピソードコードを含んでいる場合の変換ロジック
+            if (anchorLink.includes("spotify.com/episode/")) {
+                const epId = anchorLink.split("episode/")[1].split("?")[0];
+                embedUrl = `https://open.spotify.com/embed/episode/${epId}?utm_source=generator`;
+            }
+            
+            container.innerHTML = `
+                <iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            `;
+        }
+
+        // ページ読み込み時に自動実行
+        window.addEventListener("DOMContentLoaded", loadPodcastData);
+    </script>
 </body>
 </html>
