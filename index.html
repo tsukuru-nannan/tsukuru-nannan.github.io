@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つくるって何なん？ | 公式ポッドキャスト</title>
     <style>
+        /* 全体のスタイル定義：明るくポップな秘密基地・ブロック玩具のような世界観 */
         :root {
-            --bg-light: #F7F9FA;
-            --bg-white: #FFFFFF;
-            --text-main: #2C3E50;
-            --text-sub: #7F8C8D;
-            --accent-yellow: #FFD43B;
-            --accent-orange: #FF922B;
-            --accent-blue: #339AF0;
-            --accent-green: #51CF66;
-            --accent-purple: #CC5DE8;
+            --bg-light: #F7F9FA;      /* 優しいライトグレー */
+            --bg-white: #FFFFFF;      /* 純白 */
+            --text-main: #2C3E50;     /* 読みやすい濃いネイビー */
+            --text-sub: #7F8C8D;      /* 補足のグレー */
+            --accent-yellow: #FFD43B; /* ひらめきイエロー */
+            --accent-orange: #FF922B; /* 挑戦のオレンジ */
+            --accent-blue: #339AF0;   /* 工作のブルー */
+            --accent-green: #51CF66;  /* 3Dプリンターのグリーン */
+            --accent-purple: #CC5DE8; /* テック・AIのパープル */
         }
 
         body {
@@ -49,13 +50,21 @@
             font-weight: 900;
             color: var(--accent-orange);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         nav a {
             color: var(--text-main);
             text-decoration: none;
             margin-left: 20px;
+            font-size: 0.95rem;
             font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
         }
 
         .container {
@@ -64,6 +73,7 @@
             padding: 30px 20px;
         }
 
+        /* ヒーローセクション：ジャケット写真と熱いメッセージ */
         .hero-flex {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -94,7 +104,14 @@
         .hero h1 {
             font-size: 2.4rem;
             margin: 0 0 15px 0;
+            color: var(--text-main);
             font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 25px;
         }
 
         .action-box {
@@ -106,29 +123,29 @@
             font-weight: bold;
         }
 
-        .sns-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-link {
+        .btn-spotify {
+            background-color: #1DB954;
             color: white;
-            padding: 12px 22px;
+            padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(29, 185, 84, 0.4);
+            transition: transform 0.2s;
         }
 
-        .btn-spotify { background-color: #1DB954; }
-        .btn-x { background-color: #1A1A1A; }
-        .btn-form { background-color: var(--accent-orange); }
+        .btn-spotify:hover {
+            transform: scale(1.03);
+        }
 
-        .clear { clear: both; }
+        .clear {
+            clear: both;
+        }
 
+        /* 最新回プレイヤー */
         .player-section {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -138,6 +155,7 @@
             box-shadow: 6px 6px 0px var(--accent-blue);
         }
 
+        /* パターンA：カテゴリごとの部屋（縦並び） */
         .room-section {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -148,6 +166,9 @@
         }
 
         .room-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 1.6rem;
@@ -156,6 +177,7 @@
             padding-bottom: 10px;
         }
 
+        /* エピソードリスト */
         .episode-list {
             list-style: none;
             padding: 0;
@@ -168,11 +190,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
         }
 
-        .episode-item:last-child { border-bottom: none; }
-        .episode-title { color: var(--text-main); font-weight: bold; }
+        .episode-item:last-child {
+            border-bottom: none;
+        }
+
+        .episode-title {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        .episode-title:hover {
+            color: var(--accent-blue);
+        }
 
         .listen-link {
             font-size: 0.85rem;
@@ -182,11 +214,34 @@
             color: var(--text-main);
             text-decoration: none;
             font-weight: bold;
-            white-space: nowrap;
         }
 
-        .listen-link:hover { background-color: var(--accent-orange); color: white; }
-        .loading-text { color: var(--text-sub); font-style: italic; padding: 15px; }
+        .listen-link:hover {
+            background-color: var(--accent-orange);
+            color: white;
+        }
+
+        /* おたよりコーナー */
+        .contact-section {
+            background-color: #FFF9DB;
+            border: 3px dashed var(--accent-orange);
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn-orange {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(255, 146, 43, 0.3);
+        }
 
         footer {
             text-align: center;
@@ -206,6 +261,7 @@
             <nav>
                 <a href="#latest">最新回</a>
                 <a href="#rooms">テーマ別の部屋</a>
+                <a href="#otayori">おたより</a>
             </nav>
         </div>
     </header>
@@ -224,17 +280,9 @@
                     💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
-                <div class="sns-buttons">
-                    <a href="https://open.spotify.com/show/4G0r9Rk0U9h2rN4X6A8GzF" target="_blank" class="btn-link btn-spotify">
-                        <span>🎧 Spotifyで聴く</span>
-                    </a>
-                    <a href="https://x.com/syokuninradio" target="_blank" class="btn-link btn-x">
-                        <span>𝕏 公式X (旧Twitter)</span>
-                    </a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-link btn-form">
-                        <span>📬 おたよりフォーム</span>
-                    </a>
-                </div>
+                <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp" target="_blank" class="btn-spotify">
+                    <span>🎧 Spotifyで全31回を聴いてみる！</span>
+                </a>
             </div>
             <div class="clear"></div>
         </section>
@@ -242,7 +290,7 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/4G0r9Rk0U9h2rN4X6A8GzF" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0cvfNyNphMFJvcEDbmEgAp?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <section id="rooms">
@@ -251,114 +299,85 @@
             <div class="room-section" style="--room-color: var(--accent-blue);">
                 <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
                 <p>地域の小さな工場や現場をデジタルでもっと便利に！IoTの活用や診断士の視点を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
-                <ul class="episode-list" id="room-dx">
-                    <p class="loading-text">エピソードを読み込み中...</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第22回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第26回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第27回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第28回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第30回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第31回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-green);">
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
                 <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、現場を助けるちょっとマニアックな条件出しまで挑戦しています。</p>
-                <ul class="episode-list" id="room-3d">
-                    <p class="loading-text">エピソードを読み込み中...</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第1回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第2回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第4回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第8回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第12回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第18回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
                 <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
-                <ul class="episode-list" id="room-machine">
-                    <p class="loading-text">エピソードを読み込み中...</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第6回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第9回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第10回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第17回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第23回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第25回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第29回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
-                <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変える部屋です。</p>
-                <ul class="episode-list" id="room-ai">
-                    <p class="loading-text">エピソードを読み込み中...</p>
+                <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第11回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第13回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第15回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第20回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第21回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第24回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: #868E96;">
                 <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
                 <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンターのクレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
-                <ul class="episode-list" id="room-chat">
-                    <p class="loading-text">エピソードを読み込み中...</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第3回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第5回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第7回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第14回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第16回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第19回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
+
         </section>
+
+        <section id="otayori" class="contact-section">
+            <h2 style="color: var(--accent-orange); margin-top: 0; font-weight:900;">📬 しょくにんさんにおたよりを送る</h2>
+            <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
+                「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
+            </p>
+            <a href="#" class="btn-orange">おたよりを送ってみる！</a>
+        </section>
+
     </div>
 
     <footer>
         <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
     </footer>
 
-    <script>
-        const FEED_URL = "https://anchor.fm/s/106c91948/podcast/rss";
-        const JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}&nocache=${new Date().getTime()}`;
-
-        async function fetchPodcast() {
-            try {
-                const response = await fetch(JSON_API);
-                const data = await response.json();
-                if (data.status !== "ok") throw new Error("RSSデータ取得失敗");
-
-                const lists = {
-                    dx: document.getElementById("room-dx"),
-                    printer: document.getElementById("room-3d"),
-                    machine: document.getElementById("room-machine"),
-                    ai: document.getElementById("room-ai"),
-                    chat: document.getElementById("room-chat")
-                };
-
-                // 初期化
-                Object.values(lists).forEach(list => list.innerHTML = "");
-
-                data.items.forEach((item) => {
-                    const title = item.title;
-                    const link = item.link;
-
-                    const li = document.createElement("li");
-                    li.className = "episode-item";
-                    li.innerHTML = `
-                        <span class="episode-title">${title}</span>
-                        <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
-                    `;
-
-                    // 1. タイトルの前後にある「見えない空白や改行」を完全に削ぎ落とす(.trim())
-                    // 2. 全角英数字を半角に、大文字に変換してブレを無くす
-                    let cleanedTitle = title.trim().replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
-                        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-                    }).toUpperCase();
-
-                    // 🛠️ 末尾完全一致ルール（タイトルの最後が指定の文字で終わっているか検証）
-                    if (cleanedTitle.endsWith("【AI】")) {
-                        lists.ai.appendChild(li);
-                    } else if (cleanedTitle.endsWith("【DX】")) {
-                        lists.dx.appendChild(li);
-                    } else if (cleanedTitle.endsWith("【3Dプリンター】")) {
-                        lists.printer.appendChild(li);
-                    } else if (cleanedTitle.endsWith("【工作機械】")) {
-                        lists.machine.appendChild(li);
-                    } else {
-                        // 【雑談】がついている、または末尾に上記キーワードがないものはすべてここ
-                        lists.chat.appendChild(li);
-                    }
-                });
-
-                // 空っぽの部屋のフォロー表示
-                Object.keys(lists).forEach(key => {
-                    if (lists[key].children.length === 0) {
-                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub); font-weight:normal;">対象のエピソードがここに自動で表示されます！</span></li>';
-                    }
-                });
-
-            } catch (error) {
-                console.error("エラー:", error);
-            }
-        }
-        window.addEventListener("DOMContentLoaded", fetchPodcast);
-    </script>
 </body>
 </html>
