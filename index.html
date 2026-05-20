@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>つくるって何なん？ | 公式ポッドキャスト</title>
     <style>
-        /* 全体のスタイル定義：明るくポップな秘密基地・ブロック玩具のような世界観 */
         :root {
-            --bg-light: #F7F9FA;      /* 優しいライトグレー */
-            --bg-white: #FFFFFF;      /* 純白 */
-            --text-main: #2C3E50;     /* 読みやすい濃いネイビー */
-            --text-sub: #7F8C8D;      /* 補足のグレー */
-            --accent-yellow: #FFD43B; /* ひらめきイエロー */
-            --accent-orange: #FF922B; /* 挑戦のオレンジ */
-            --accent-blue: #339AF0;   /* 工作のブルー */
-            --accent-green: #51CF66;  /* 3Dプリンターのグリーン */
-            --accent-purple: #CC5DE8; /* テック・AIのパープル */
+            --bg-light: #F7F9FA;
+            --bg-white: #FFFFFF;
+            --text-main: #2C3E50;
+            --text-sub: #7F8C8D;
+            --accent-yellow: #FFD43B;
+            --accent-orange: #FF922B;
+            --accent-blue: #339AF0;
+            --accent-green: #51CF66;
+            --accent-purple: #CC5DE8;
         }
 
         body {
@@ -50,21 +49,13 @@
             font-weight: 900;
             color: var(--accent-orange);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         nav a {
             color: var(--text-main);
             text-decoration: none;
             margin-left: 20px;
-            font-size: 0.95rem;
             font-weight: bold;
-        }
-
-        nav a:hover {
-            color: var(--accent-blue);
         }
 
         .container {
@@ -73,7 +64,6 @@
             padding: 30px 20px;
         }
 
-        /* ヒーローセクション */
         .hero-flex {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -104,14 +94,7 @@
         .hero h1 {
             font-size: 2.4rem;
             margin: 0 0 15px 0;
-            color: var(--text-main);
             font-weight: 900;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 25px;
         }
 
         .action-box {
@@ -123,12 +106,10 @@
             font-weight: bold;
         }
 
-        /* リンクボタンの並び */
         .sns-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 10px;
         }
 
         .btn-link {
@@ -140,23 +121,14 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.95rem;
-            transition: transform 0.2s;
-        }
-        .btn-link:hover {
-            transform: scale(1.02);
-            opacity: 0.9;
         }
 
-        .btn-spotify { background-color: #1DB954; box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3); }
-        .btn-x { background-color: #1A1A1A; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-        .btn-form { background-color: var(--accent-orange); box-shadow: 0 4px 12px rgba(255, 146, 43, 0.3); }
+        .btn-spotify { background-color: #1DB954; }
+        .btn-x { background-color: #1A1A1A; }
+        .btn-form { background-color: var(--accent-orange); }
 
-        .clear {
-            clear: both;
-        }
+        .clear { clear: both; }
 
-        /* 最新回プレイヤー */
         .player-section {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -166,7 +138,6 @@
             box-shadow: 6px 6px 0px var(--accent-blue);
         }
 
-        /* 部屋スタイル */
         .room-section {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -177,9 +148,6 @@
         }
 
         .room-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 1.6rem;
@@ -203,14 +171,8 @@
             gap: 15px;
         }
 
-        .episode-item:last-child {
-            border-bottom: none;
-        }
-
-        .episode-title {
-            color: var(--text-main);
-            font-weight: bold;
-        }
+        .episode-item:last-child { border-bottom: none; }
+        .episode-title { color: var(--text-main); font-weight: bold; }
 
         .listen-link {
             font-size: 0.85rem;
@@ -223,16 +185,8 @@
             white-space: nowrap;
         }
 
-        .listen-link:hover {
-            background-color: var(--accent-orange);
-            color: white;
-        }
-
-        .loading-text {
-            color: var(--text-sub);
-            font-style: italic;
-            padding: 15px;
-        }
+        .listen-link:hover { background-color: var(--accent-orange); color: white; }
+        .loading-text { color: var(--text-sub); font-style: italic; padding: 15px; }
 
         footer {
             text-align: center;
@@ -267,7 +221,7 @@
                 <p>工作機械操作のインストラクターであり、中小企業診断士を目指す「<strong>しょくにんさん</strong>」が、製造業の現場にAIやIoTなどの最新技術を泥臭く導入し、製造業DXを進めていくリアルな挑戦を伝えるポッドキャスト番組です。</p>
                 
                 <div class="action-box">
-                    💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等等身大でお届けします。
+                    💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
                 <div class="sns-buttons">
@@ -288,7 +242,7 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp6" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp8" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <section id="rooms">
@@ -333,14 +287,11 @@
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
             </div>
-
         </section>
-
     </div>
 
     <footer>
         <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
     </footer>
 
     <script>
@@ -351,7 +302,6 @@
             try {
                 const response = await fetch(JSON_API);
                 const data = await response.json();
-                
                 if (data.status !== "ok") throw new Error("RSSデータ取得失敗");
 
                 const lists = {
@@ -362,7 +312,6 @@
                     chat: document.getElementById("room-chat")
                 };
 
-                // 表示の初期化
                 Object.values(lists).forEach(list => list.innerHTML = "");
 
                 data.items.forEach((item) => {
@@ -377,52 +326,32 @@
                         <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
                     `;
 
-                    // 【タイトル文字列 徹底解析判定ロジック】
-                    // 1. 製造業DX
-                    if (t.includes("dx") || t.includes("dify") || t.includes("rag") || t.includes("api")) {
+                    // キーワードが含まれているかで「100%確実」に仕分けます
+                    if (t.includes("dx") || t.includes("デジタル")) {
                         lists.dx.appendChild(li);
-                    }
-                    // 2. AI（人工知能）
-                    else if (t.includes("ai") || t.includes("jdla") || t.includes("connect") || t.includes("異常検知")) {
-                        lists.ai.appendChild(li);
-                    }
-                    // 3. 3Dプリンター
-                    else if (t.includes("3d") || t.includes("プリンタ")) {
+                    } else if (t.includes("3d") || t.includes("プリンタ")) {
                         lists.printer.appendChild(li);
-                    }
-                    // 4. 工作機械
-                    else if (t.includes("機械") || t.includes("旋盤") || t.includes("工具") || t.includes("タッパー")) {
+                    } else if (t.includes("機械") || t.includes("旋盤") || t.includes("工具") || t.includes("タッパー")) {
                         lists.machine.appendChild(li);
-                    }
-                    // 5. 特定の過去番号の例外処理、またはそれ以外の日常・雑談トーク
-                    else if (
-                        t.includes("25") || t.includes("つくるって何だろう") || 
-                        t.includes("3") || t.includes("5") || t.includes("7") || 
-                        t.includes("14") || t.includes("16") || t.includes("19")
-                    ) {
-                        lists.chat.appendChild(li);
-                    }
-                    // 安全策：どれにも引っかからなかった場合は雑談へ分類
-                    else {
+                    } else if (t.includes("ai") || t.includes("jdla") || t.includes("異常検知")) {
+                        lists.ai.appendChild(li);
+                    } else {
+                        // どれにも当てはまらない、または【雑談】はここへ
                         lists.chat.appendChild(li);
                     }
                 });
 
-                // 万が一配信が1件もない部屋があった場合の処理
+                // まだキーワードを入れてなくて空っぽの部屋がある場合の優しい表示
                 Object.keys(lists).forEach(key => {
                     if (lists[key].children.length === 0) {
-                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">新しいエピソードを配信準備中！</span></li>';
+                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">タイトルにキーワードが付くと、ここに自動で表示されます！</span></li>';
                     }
                 });
 
             } catch (error) {
                 console.error("エラー:", error);
-                Object.values(lists).forEach(list => {
-                    list.innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">データの自動読み込みに一時的なラグが発生しています。少し時間を置いて再読み込みしてください。</span></li>';
-                });
             }
         }
-
         window.addEventListener("DOMContentLoaded", fetchPodcast);
     </script>
 </body>
