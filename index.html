@@ -43,6 +43,8 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+          flex-wrap: wrap; /* スマホで溢れたら折り返す */
+          gap: 10px;
       }
  
       .logo {
@@ -55,10 +57,15 @@
           gap: 8px;
       }
  
+      nav {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+      }
+
       nav a {
           color: var(--text-main);
           text-decoration: none;
-          margin-left: 20px;
           font-size: 0.95rem;
           font-weight: bold;
       }
@@ -70,10 +77,11 @@
       .container {
           max-width: 1000px;
           margin: 0 auto;
-          padding: 30px 20px;
+          padding: 30px 15px; /* スマホ用に左右余白を微調整 */
+          box-sizing: border-box;
       }
  
-      /* ヒーローセクション：ジャケット写真と熱いメッセージ */
+      /* ヒーローセクション：PC/スマホ連動のフレックスボックスに変更 */
       .hero-flex {
           background-color: var(--bg-white);
           border: 3px solid var(--text-main);
@@ -81,24 +89,28 @@
           padding: 40px;
           margin-bottom: 40px;
           box-shadow: 6px 6px 0px var(--text-main);
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+          align-items: flex-start;
       }
  
       .hero-image-area {
-          float: left;
+          flex-shrink: 0;
           width: 250px;
-          margin-right: 30px;
-          margin-bottom: 20px;
       }
  
       .hero-image-area img {
           width: 100%;
+          height: auto;
           border-radius: 12px;
           border: 3px solid var(--text-main);
           box-shadow: 4px 4px 0px var(--accent-yellow);
+          display: block;
       }
  
       .hero-text-area {
-          overflow: hidden;
+          flex-grow: 1;
       }
  
       .hero h1 {
@@ -141,10 +153,6 @@
           transform: scale(1.03);
       }
  
-      .clear {
-          clear: both;
-      }
- 
       /* 最新回プレイヤー */
       .player-section {
           background-color: var(--bg-white);
@@ -155,7 +163,7 @@
           box-shadow: 6px 6px 0px var(--accent-blue);
       }
  
-      /* パターンA：カテゴリごとの部屋（縦並び） */
+      /* カテゴリごとの部屋 */
       .room-section {
           background-color: var(--bg-white);
           border: 3px solid var(--text-main);
@@ -185,7 +193,7 @@
       }
  
       .episode-item {
-          padding: 12px 15px;
+          padding: 14px 15px; /* タップしやすいよう少し広めに */
           border-bottom: 1px solid #E2E8F0;
           display: flex;
           justify-content: space-between;
@@ -203,6 +211,7 @@
           font-weight: bold;
           text-align: left;
           flex-grow: 1;
+          line-height: 1.4;
       }
  
       .episode-title:hover {
@@ -212,12 +221,12 @@
       .listen-link {
           font-size: 0.85rem;
           background-color: #F1F3F5;
-          padding: 4px 10px;
+          padding: 6px 12px;
           border-radius: 6px;
           color: var(--text-main);
           text-decoration: none;
           font-weight: bold;
-          white-space: nowrap;
+          white-space: nowrap; /* 聴くボタンが途中で折れないように */
       }
  
       .listen-link:hover {
@@ -234,6 +243,14 @@
           text-align: center;
           margin-bottom: 50px;
       }
+
+      .contact-buttons {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin-top: 20px;
+      }
  
       .btn-orange {
           background-color: var(--accent-orange);
@@ -243,17 +260,81 @@
           text-decoration: none;
           font-weight: bold;
           display: inline-block;
-          margin-top: 20px;
           box-shadow: 0 4px 10px rgba(255, 146, 43, 0.3);
       }
  
       footer {
           text-align: center;
-          padding: 40px;
+          padding: 40px 20px;
           color: var(--text-sub);
           font-size: 0.9rem;
           border-top: 2px solid #E2E8F0;
           margin-top: 60px;
+      }
+
+      /* ==========================================================================
+         スマートフォン用の画面調整（画面幅が768px以下の場合に適用）
+         ========================================================================== */
+      @media (max-width: 768px) {
+          header {
+              padding: 15px 10px;
+          }
+          .header-container {
+              flex-direction: column; /* ロゴとナビを縦並びに */
+              align-items: center;
+              text-align: center;
+          }
+          nav {
+              justify-content: center;
+              margin-top: 5px;
+          }
+          nav a {
+              margin: 0 5px;
+              font-size: 0.9rem;
+          }
+          .hero-flex {
+              flex-direction: column; /* 画像を上、テキストを下に */
+              align-items: center;
+              padding: 25px 20px;
+              text-align: center;
+          }
+          .hero-image-area {
+              width: 100%;
+              max-width: 200px; /* スマホで画像が大きくなりすぎないように */
+          }
+          .hero h1 {
+              font-size: 1.8rem;
+          }
+          .hero p {
+              font-size: 1rem;
+          }
+          .action-box {
+              text-align: left; /* メッセージは左揃えが読みやすい */
+          }
+          .room-section {
+              padding: 20px 15px; /* 中の余白を少し狭めてすっきり */
+          }
+          .room-header {
+              font-size: 1.3rem;
+          }
+          .episode-item {
+              flex-direction: column; /* タイトルの下にボタンを配置 */
+              align-items: flex-start;
+              gap: 8px;
+              padding: 15px 5px;
+          }
+          .listen-link {
+              align-self: flex-end; /* 聴くボタンだけ右下に配置 */
+          }
+          .contact-buttons {
+              flex-direction: column;
+              align-items: stretch;
+              padding: 0 10px;
+          }
+          .btn-orange {
+              display: block;
+              margin-left: 0 !important; /* X(Twitter)ボタンの左余白をリセット */
+          }
       }
   </style>
 </head>
@@ -288,7 +369,6 @@
                     <span>🎧 Spotifyで全31回を聴いてみる！</span>
                 </a>
           </div>
-          <div class="clear"></div>
       </section>
  
       <section id="latest" class="player-section">
@@ -302,8 +382,10 @@
           <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
                 「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
           </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりフォームを開く</a>
-          <a href="https://x.com/syokuninradio" target="_blank" class="btn-orange" style="background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.3); margin-left: 10px;">公式X (旧Twitter) を見る</a>
+          <div class="contact-buttons">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりフォームを開く</a>
+              <a href="https://x.com/syokuninradio" target="_blank" class="btn-orange" style="background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.3);">公式X (旧Twitter) を見る</a>
+          </div>
       </section>
  
       <section id="rooms">
@@ -338,7 +420,7 @@
  
           <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
-                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦 chimneys の記録です。</p>
+                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
                 <ul class="episode-list">
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/ep-e3iuanp" target="_blank" class="episode-title">29 タッパーについて語りたい！～ものづくり系ポッドキャストの日～　【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/ep-e3iuanp" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/25-e3gnv5a" target="_blank" class="episode-title">25 つくるって何だろう　【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/25-e3gnv5a" target="_blank" class="listen-link">聴く ➔</a></li>
