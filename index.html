@@ -225,7 +225,7 @@
                 </div>
 
                 <div class="sns-buttons">
-                    <a href="https://open.spotify.com/show/06iWIDnF7Xf05gD3256K6M" target="_blank" class="btn-link btn-spotify">
+                    <a href="https://open.spotify.com/show/4G0r9Rk0U9h2rN4X6A8GzF" target="_blank" class="btn-link btn-spotify">
                         <span>🎧 Spotifyで聴く</span>
                     </a>
                     <a href="https://x.com/syokuninradio" target="_blank" class="btn-link btn-x">
@@ -242,7 +242,7 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/06iWIDnF7Xf05gD3256K6M?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/4G0r9Rk0U9h2rN4X6A8GzF" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <section id="rooms">
@@ -266,7 +266,7 @@
 
             <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
-                <p>ものづくールの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
+                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
                 <ul class="episode-list" id="room-machine">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
@@ -274,7 +274,7 @@
 
             <div class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
-                <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
+                <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変える部屋です。</p>
                 <ul class="episode-list" id="room-ai">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
@@ -296,7 +296,6 @@
 
     <script>
         const FEED_URL = "https://anchor.fm/s/106c91948/podcast/rss";
-        // キャッシュバスターを追加して常に最新のRSSを取得
         const JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}&nocache=${new Date().getTime()}`;
 
         async function fetchPodcast() {
@@ -313,7 +312,7 @@
                     chat: document.getElementById("room-chat")
                 };
 
-                // 各部屋の初期化
+                // 初期化
                 Object.values(lists).forEach(list => list.innerHTML = "");
 
                 data.items.forEach((item) => {
@@ -327,36 +326,36 @@
                         <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
                     `;
 
-                    // 【】を含んだ新ルールで確実に仕分け（全角半角、大文字小文字対応）
-                    const t = title.toUpperCase();
-                    
-                    if (t.includes("【DX】") || t.includes("【デジタル】")) {
-                        lists.dx.appendChild(li);
-                    } else if (t.includes("【3Dプリンター】")) {
-                        lists.printer.appendChild(li);
-                    } else if (t.includes("【工作機械】")) {
-                        lists.machine.appendChild(li);
-                    } else if (t.includes("【AI】")) {
+                    // 1. タイトルの前後にある「見えない空白や改行」を完全に削ぎ落とす(.trim())
+                    // 2. 全角英数字を半角に、大文字に変換してブレを無くす
+                    let cleanedTitle = title.trim().replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+                        return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+                    }).toUpperCase();
+
+                    // 🛠️ 末尾完全一致ルール（タイトルの最後が指定の文字で終わっているか検証）
+                    if (cleanedTitle.endsWith("【AI】")) {
                         lists.ai.appendChild(li);
+                    } else if (cleanedTitle.endsWith("【DX】")) {
+                        lists.dx.appendChild(li);
+                    } else if (cleanedTitle.endsWith("【3Dプリンター】")) {
+                        lists.printer.appendChild(li);
+                    } else if (cleanedTitle.endsWith("【工作機械】")) {
+                        lists.machine.appendChild(li);
                     } else {
-                        // 【雑談】がついている、または【キーワード】がないものはすべてここ
+                        // 【雑談】がついている、または末尾に上記キーワードがないものはすべてここ
                         lists.chat.appendChild(li);
                     }
                 });
 
-                // まだ該当エピソードがない部屋へのフォロー表示
+                // 空っぽの部屋のフォロー表示
                 Object.keys(lists).forEach(key => {
                     if (lists[key].children.length === 0) {
-                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub); font-weight:normal;">タイトル末尾にキーワードが付くと、ここに自動で表示されます！</span></li>';
+                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub); font-weight:normal;">対象のエピソードがここに自動で表示されます！</span></li>';
                     }
                 });
 
             } catch (error) {
                 console.error("エラー:", error);
-                // エラー時のフォールバック表示
-                ["room-dx", "room-3d", "room-machine", "room-ai", "room-chat"].forEach(id => {
-                    document.getElementById(id).innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">エピソードを読み込めませんでした。上の「Spotifyで聴く」ボタンから直接お聴きください！</span></li>';
-                });
             }
         }
         window.addEventListener("DOMContentLoaded", fetchPodcast);
