@@ -1,430 +1,365 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>つくるって何なん？ | 公式ポッドキャスト</title>
-   <style>
-       /* 全体のスタイル定義：明るくポップな秘密基地・ブロック玩具のような世界観 */
-       :root {
-           --bg-light: #F7F9FA;      /* 優しいライトグレー */
-           --bg-white: #FFFFFF;      /* 純白 */
-           --text-main: #2C3E50;     /* 読みやすい濃いネイビー */
-           --text-sub: #7F8C8D;      /* 補足のグレー */
-           --accent-yellow: #FFD43B; /* ひらめきイエロー */
-           --accent-orange: #FF922B; /* 挑戦のオレンジ */
-           --accent-blue: #339AF0;   /* 工作のブルー */
-           --accent-green: #51CF66;  /* 3Dプリンターのグリーン */
-           --accent-purple: #CC5DE8; /* テック・AIのパープル */
-       }
- 
-       body {
-           background-color: var(--bg-light);
-           color: var(--text-main);
-           font-family: 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
-           margin: 0;
-           padding: 0;
-           line-height: 1.6;
-       }
- 
-       header {
-           background-color: var(--bg-white);
-           border-bottom: 4px solid var(--accent-yellow);
-           padding: 15px 20px;
-           position: sticky;
-           top: 0;
-           z-index: 100;
-           box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-       }
- 
-       .header-container {
-           max-width: 1000px;
-           margin: 0 auto;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-       }
- 
-       .logo {
-           font-size: 1.6rem;
-           font-weight: 900;
-           color: var(--accent-orange);
-           text-decoration: none;
-           display: flex;
-           align-items: center;
-           gap: 8px;
-       }
- 
-       nav a {
-           color: var(--text-main);
-           text-decoration: none;
-           margin-left: 20px;
-           font-size: 0.95rem;
-           font-weight: bold;
-       }
- 
-       nav a:hover {
-           color: var(--accent-blue);
-       }
- 
-       .container {
-           max-width: 1000px;
-           margin: 0 auto;
-           padding: 30px 20px;
-       }
- 
-       /* ヒーローセクション：ジャケット写真と熱いメッセージ */
-       .hero-flex {
-           background-color: var(--bg-white);
-           border: 3px solid var(--text-main);
-           border-radius: 16px;
-           padding: 40px;
-           margin-bottom: 40px;
-           box-shadow: 6px 6px 0px var(--text-main);
-       }
- 
-       .hero-image-area {
-           float: left;
-           width: 250px;
-           margin-right: 30px;
-           margin-bottom: 20px;
-       }
- 
-       .hero-image-area img {
-           width: 100%;
-           border-radius: 12px;
-           border: 3px solid var(--text-main);
-           box-shadow: 4px 4px 0px var(--accent-yellow);
-       }
- 
-       .hero-text-area {
-           overflow: hidden;
-       }
- 
-       .hero h1 {
-           font-size: 2.4rem;
-           margin: 0 0 15px 0;
-           color: var(--text-main);
-           font-weight: 900;
-       }
- 
-       .hero p {
-           font-size: 1.1rem;
-           color: var(--text-main);
-           margin-bottom: 25px;
-       }
- 
-       .action-box {
-           background-color: rgba(255, 212, 59, 0.15);
-           border-left: 5px solid var(--accent-orange);
-           padding: 15px;
-           border-radius: 0 8px 8px 0;
-           margin-bottom: 25px;
-           font-weight: bold;
-       }
- 
-       .btn-spotify {
-           background-color: #1DB954;
-           color: white;
-           padding: 14px 28px;
-           border-radius: 50px;
-           text-decoration: none;
-           font-weight: bold;
-           display: inline-flex;
-           align-items: center;
-           gap: 10px;
-           box-shadow: 0 4px 14px rgba(29, 185, 84, 0.4);
-           transition: transform 0.2s;
-       }
- 
-       .btn-spotify:hover {
-           transform: scale(1.03);
-       }
- 
-       .clear {
-           clear: both;
-       }
- 
-       /* 最新回プレイヤー */
-       .player-section {
-           background-color: var(--bg-white);
-           border: 3px solid var(--text-main);
-           border-radius: 16px;
-           padding: 25px;
-           margin-bottom: 50px;
-           box-shadow: 6px 6px 0px var(--accent-blue);
-       }
- 
-       /* カテゴリごとの部屋（縦並び） */
-       .room-section {
-           background-color: var(--bg-white);
-           border: 3px solid var(--text-main);
-           border-radius: 16px;
-           padding: 30px;
-           margin-bottom: 40px;
-           box-shadow: 6px 6px 0px var(--room-color, #efefef);
-       }
- 
-       .room-header {
-           display: flex;
-           align-items: center;
-           gap: 10px;
-           margin-top: 0;
-           margin-bottom: 20px;
-           font-size: 1.6rem;
-           font-weight: 900;
-           border-bottom: 2px dashed #E2E8F0;
-           padding-bottom: 10px;
-       }
- 
-       /* エピソードリスト */
-       .episode-list {
-           list-style: none;
-           padding: 0;
-           margin: 0;
-       }
- 
-       .episode-item {
-           padding: 12px 15px;
-           border-bottom: 1px solid #E2E8F0;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           gap: 15px;
-       }
- 
-       .episode-item:last-child {
-           border-bottom: none;
-       }
- 
-       .episode-title {
-           text-decoration: none;
-           color: var(--text-main);
-           font-weight: bold;
-       }
- 
-       .episode-title:hover {
-           color: var(--accent-blue);
-       }
- 
-       .listen-link {
-           font-size: 0.85rem;
-           background-color: #F1F3F5;
-           padding: 4px 10px;
-           border-radius: 6px;
-           color: var(--text-main);
-           text-decoration: none;
-           font-weight: bold;
-           white-space: nowrap;
-       }
- 
-       .listen-link:hover {
-           background-color: var(--accent-orange);
-           color: white;
-       }
- 
-       /* おたよりコーナー */
-       .contact-section {
-           background-color: #FFF9DB;
-           border: 3px dashed var(--accent-orange);
-           border-radius: 16px;
-           padding: 40px 20px;
-           text-align: center;
-           margin-top: 60px;
-       }
- 
-       .btn-orange {
-           background-color: var(--accent-orange);
-           color: white;
-           padding: 14px 32px;
-           border-radius: 50px;
-           text-decoration: none;
-           font-weight: bold;
-           display: inline-block;
-           margin-top: 20px;
-           box-shadow: 0 4px 10px rgba(255, 146, 43, 0.3);
-       }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>つくるって何なん？ | 公式ポッドキャスト</title>
+    <style>
+        :root {
+            --bg-light: #F7F9FA;
+            --bg-white: #FFFFFF;
+            --text-main: #2C3E50;
+            --text-sub: #7F8C8D;
+            --accent-yellow: #FFD43B;
+            --accent-orange: #FF922B;
+            --accent-blue: #339AF0;
+            --accent-green: #51CF66;
+            --accent-purple: #CC5DE8;
+        }
 
-       .loading-text {
-           color: var(--text-sub);
-           font-style: italic;
-           padding: 10px;
-       }
- 
-       footer {
-           text-align: center;
-           padding: 40px;
-           color: var(--text-sub);
-           font-size: 0.9rem;
-           border-top: 2px solid #E2E8F0;
-           margin-top: 60px;
-       }
-   </style>
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-family: 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 4px solid var(--accent-yellow);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .hero-flex {
+            background-color: var(--bg-white);
+            border: 3px solid var(--text-main);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 6px 6px 0px var(--text-main);
+        }
+
+        .hero-image-area {
+            float: left;
+            width: 250px;
+            margin-right: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero-image-area img {
+            width: 100%;
+            border-radius: 12px;
+            border: 3px solid var(--text-main);
+            box-shadow: 4px 4px 0px var(--accent-yellow);
+        }
+
+        .hero-text-area {
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            margin: 0 0 15px 0;
+            font-weight: 900;
+        }
+
+        .action-box {
+            background-color: rgba(255, 212, 59, 0.15);
+            border-left: 5px solid var(--accent-orange);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .sns-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-link {
+            color: white;
+            padding: 12px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-spotify { background-color: #1DB954; }
+        .btn-x { background-color: #1A1A1A; }
+        .btn-form { background-color: var(--accent-orange); }
+
+        .clear { clear: both; }
+
+        .player-section {
+            background-color: var(--bg-white);
+            border: 3px solid var(--text-main);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 50px;
+            box-shadow: 6px 6px 0px var(--accent-blue);
+        }
+
+        .room-section {
+            background-color: var(--bg-white);
+            border: 3px solid var(--text-main);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 6px 6px 0px var(--room-color, #efefef);
+        }
+
+        .room-header {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            border-bottom: 2px dashed #E2E8F0;
+            padding-bottom: 10px;
+        }
+
+        .episode-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .episode-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .episode-item:last-child { border-bottom: none; }
+        .episode-title { color: var(--text-main); font-weight: bold; }
+
+        .listen-link {
+            font-size: 0.85rem;
+            background-color: #F1F3F5;
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .listen-link:hover { background-color: var(--accent-orange); color: white; }
+        .loading-text { color: var(--text-sub); font-style: italic; padding: 15px; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            border-top: 2px solid #E2E8F0;
+            margin-top: 60px;
+        }
+    </style>
 </head>
 <body>
- 
-   <header>
-       <div class="header-container">
-           <a href="#" class="logo">🛠️ つくるって何なん？</a>
-           <nav>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">🛠️ つくるって何なん？</a>
+            <nav>
                 <a href="#latest">最新回</a>
                 <a href="#rooms">テーマ別の部屋</a>
-                <a href="#otayori">おたより</a>
-           </nav>
-       </div>
-   </header>
- 
-   <div class="container">
- 
-       <section class="hero-flex">
-           <div class="hero-image-area">
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="hero-flex">
+            <div class="hero-image-area">
                 <img src="jacket.png" alt="番組ジャケット" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'">
-           </div>
-           <div class="hero-text-area">
+            </div>
+            <div class="hero-text-area">
                 <h1>つくるって何なん？</h1>
                 <p>工作機械操作のインストラクターであり、中小企業診断士を目指す「<strong>しょくにんさん</strong>」が、製造業の現場にAIやIoTなどの最新技術を泥臭く導入し、製造業DXを進めていくリアルな挑戦を伝えるポッドキャスト番組です。</p>
                 
                 <div class="action-box">
                     💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
- 
-                <a href="https://open.spotify.com/show/5bU9hL6Q6zG4I6U6yZpG9y" target="_blank" class="btn-spotify">
-                    <span>🎧 Spotifyで全31回を聴いてみる！</span>
-                </a>
-           </div>
-           <div class="clear"></div>
-       </section>
- 
-       <section id="latest" class="player-section">
-           <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
-           <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/5bU9hL6Q6zG4I6U6yZpG9y?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-       </section>
- 
-       <section id="rooms">
-           <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:40px;">🧪 過去のエピソードをのぞいてみよう！</h2>
- 
-           <div class="room-section" style="--room-color: var(--accent-blue);">
+
+                <div class="sns-buttons">
+                    <a href="https://open.spotify.com/show/06iWIDnF7Xf05gD3256K6M" target="_blank" class="btn-link btn-spotify">
+                        <span>🎧 Spotifyで聴く</span>
+                    </a>
+                    <a href="https://x.com/syokuninradio" target="_blank" class="btn-link btn-x">
+                        <span>𝕏 公式X (旧Twitter)</span>
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-link btn-form">
+                        <span>📬 おたよりフォーム</span>
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+        <section id="latest" class="player-section">
+            <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
+            <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/06iWIDnF7Xf05gD3256K6M?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </section>
+
+        <section id="rooms">
+            <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:40px;">🧪 過去のエピソードをのぞいてみよう！</h2>
+
+            <div class="room-section" style="--room-color: var(--accent-blue);">
                 <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
                 <p>地域の小さな工場や現場をデジタルでもっと便利に！IoTの活用や診断士の視点を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
                 <ul class="episode-list" id="room-dx">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
-           </div>
- 
-           <div class="room-section" style="--room-color: var(--accent-green);">
+            </div>
+
+            <div class="room-section" style="--room-color: var(--accent-green);">
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
                 <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、現場を助けるちょっとマニアックな条件出しまで挑戦しています。</p>
                 <ul class="episode-list" id="room-3d">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
-           </div>
- 
-           <div class="room-section" style="--room-color: var(--accent-orange);">
+            </div>
+
+            <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
-                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
+                <p>ものづくールの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
                 <ul class="episode-list" id="room-machine">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
-           </div>
- 
-           <div class="room-section" style="--room-color: var(--accent-purple);">
+            </div>
+
+            <div class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
                 <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
                 <ul class="episode-list" id="room-ai">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
-           </div>
- 
-           <div class="room-section" style="--room-color: #868E96;">
+            </div>
+
+            <div class="room-section" style="--room-color: #868E96;">
                 <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
                 <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンターのクレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
                 <ul class="episode-list" id="room-chat">
                     <p class="loading-text">エピソードを読み込み中...</p>
                 </ul>
-           </div>
- 
-       </section>
- 
-       <section id="otayori" class="contact-section">
-           <h2 style="color: var(--accent-orange); margin-top: 0; font-weight:900;">📬 しょくにんさんにおたよりを送る</h2>
-           <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
-                「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
-           </p>
-           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりを送ってみる！</a>
-       </section>
- 
-   </div>
- 
-   <footer>
-       <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
-       <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
-   </footer>
+            </div>
+        </section>
+    </div>
 
-   <script>
-       const FEED_URL = "https://anchor.fm/s/106c91948/podcast/rss";
-       const JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}`;
+    <footer>
+        <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
+    </footer>
 
-       async function fetchPodcast() {
-           try {
-               const response = await fetch(JSON_API);
-               const data = await response.json();
-               if (data.status !== "ok") throw new Error("データ取得失敗");
+    <script>
+        const FEED_URL = "https://anchor.fm/s/106c91948/podcast/rss";
+        // キャッシュバスターを追加して常に最新のRSSを取得
+        const JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}&nocache=${new Date().getTime()}`;
 
-               const lists = {
-                   dx: document.getElementById("room-dx"),
-                   printer: document.getElementById("room-3d"),
-                   machine: document.getElementById("room-machine"),
-                   ai: document.getElementById("room-ai"),
-                   chat: document.getElementById("room-chat")
-               };
+        async function fetchPodcast() {
+            try {
+                const response = await fetch(JSON_API);
+                const data = await response.json();
+                if (data.status !== "ok") throw new Error("RSSデータ取得失敗");
 
-               // ローディング表示をクリア
-               Object.values(lists).forEach(list => list.innerHTML = "");
+                const lists = {
+                    dx: document.getElementById("room-dx"),
+                    printer: document.getElementById("room-3d"),
+                    machine: document.getElementById("room-machine"),
+                    ai: document.getElementById("room-ai"),
+                    chat: document.getElementById("room-chat")
+                };
 
-               data.items.forEach((item) => {
-                   const title = item.title;
-                   const link = item.link;
+                // 各部屋の初期化
+                Object.values(lists).forEach(list => list.innerHTML = "");
 
-                   const li = document.createElement("li");
-                   li.className = "episode-item";
-                   li.innerHTML = `
-                       <span class="episode-title">${title}</span>
-                       <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
-                   `;
+                data.items.forEach((item) => {
+                    const title = item.title;
+                    const link = item.link;
 
-                   // しょくにんさんが設定してくれた【キーワード】で厳密に仕分けます
-                   if (title.includes("【DX】") || title.includes("【デジタル】")) {
-                       lists.dx.appendChild(li);
-                   } else if (title.includes("【3Dプリンター】")) {
-                       lists.printer.appendChild(li);
-                   } else if (title.includes("【工作機械】")) {
-                       lists.machine.appendChild(li);
-                   } else if (title.includes("【AI】")) {
-                       lists.ai.appendChild(li);
-                   } else {
-                       // 【雑談】が付いている、またはキーワード無しのものはすべてここへ
-                       lists.chat.appendChild(li);
-                   }
-               });
+                    const li = document.createElement("li");
+                    li.className = "episode-item";
+                    li.innerHTML = `
+                        <span class="episode-title">${title}</span>
+                        <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
+                    `;
 
-               // もしキーワード付きのエピソードがまだ無くて、空っぽの部屋があれば優しい案内を出す
-               Object.keys(lists).forEach(key => {
-                   if (lists[key].children.length === 0) {
-                       lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub); font-weight:normal;">タイトルに指定の【キーワード】が付くと、ここに自動で表示されます！</span></li>';
-                   }
-               });
+                    // 【】を含んだ新ルールで確実に仕分け（全角半角、大文字小文字対応）
+                    const t = title.toUpperCase();
+                    
+                    if (t.includes("【DX】") || t.includes("【デジタル】")) {
+                        lists.dx.appendChild(li);
+                    } else if (t.includes("【3Dプリンター】")) {
+                        lists.printer.appendChild(li);
+                    } else if (t.includes("【工作機械】")) {
+                        lists.machine.appendChild(li);
+                    } else if (t.includes("【AI】")) {
+                        lists.ai.appendChild(li);
+                    } else {
+                        // 【雑談】がついている、または【キーワード】がないものはすべてここ
+                        lists.chat.appendChild(li);
+                    }
+                });
 
-           } catch (error) {
-               console.error("エラー:", error);
-               // 万が一エラーが起きた場合は全部屋に案内を出す
-               ["room-dx", "room-3d", "room-machine", "room-ai", "room-chat"].forEach(id => {
-                   document.getElementById(id).innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">エピソードを読み込めませんでした。Spotifyから直接お聴きください。</span></li>';
-               });
-           }
-       }
-       window.addEventListener("DOMContentLoaded", fetchPodcast);
-   </script>
- 
+                // まだ該当エピソードがない部屋へのフォロー表示
+                Object.keys(lists).forEach(key => {
+                    if (lists[key].children.length === 0) {
+                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub); font-weight:normal;">タイトル末尾にキーワードが付くと、ここに自動で表示されます！</span></li>';
+                    }
+                });
+
+            } catch (error) {
+                console.error("エラー:", error);
+                // エラー時のフォールバック表示
+                ["room-dx", "room-3d", "room-machine", "room-ai", "room-chat"].forEach(id => {
+                    document.getElementById(id).innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">エピソードを読み込めませんでした。上の「Spotifyで聴く」ボタンから直接お聴きください！</span></li>';
+                });
+            }
+        }
+        window.addEventListener("DOMContentLoaded", fetchPodcast);
+    </script>
 </body>
 </html>
