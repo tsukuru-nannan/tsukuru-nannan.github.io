@@ -81,10 +81,8 @@
             padding: 40px;
             margin-bottom: 40px;
             box-shadow: 6px 6px 0px var(--text-main);
-            display: block; /* WeasyPrint互換のためblockにし、テーブル等で対応するのが一般的ですが、ブラウザ表示用は後ほど調整 */
         }
 
-        /* ブラウザでの左右並び用（シンプルな回り込み対応） */
         .hero-image-area {
             float: left;
             width: 250px;
@@ -179,7 +177,7 @@
             padding-bottom: 10px;
         }
 
-        /* エピソードカードのグリッド */
+        /* エピソードリスト */
         .episode-list {
             list-style: none;
             padding: 0;
@@ -276,10 +274,10 @@
             </div>
             <div class="hero-text-area">
                 <h1>つくるって何なん？</h1>
-                <p>工作機械操作のインストラクター「しょくにんさん」が、ものづくりをもっと身近に感じてもらうために、いろいろな技術に泥臭く体当たりで挑戦するポッドキャスト番組です。</p>
+                <p>工作機械操作のインストラクターであり、中小企業診断士を目指す「<strong>しょくにんさん</strong>」が、製造業の現場にAIやIoTなどの最新技術を泥臭く導入し、製造業DXを進めていくリアルな挑戦を伝えるポッドキャスト番組です。</p>
                 
                 <div class="action-box">
-                    💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なおもしろいことができる！そんなワクワクを等身大でお届けします。
+                    💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
                 <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp" target="_blank" class="btn-spotify">
@@ -298,62 +296,69 @@
         <section id="rooms">
             <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:40px;">🧪 過去のエピソードをのぞいてみよう！</h2>
 
+            <div class="room-section" style="--room-color: var(--accent-blue);">
+                <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
+                <p>地域の小さな工場や現場をデジタルでもっと便利に！IoTの活用や診断士の視点を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
+                <ul class="episode-list">
+                    <li class="episode-item"><span class="episode-title">第22回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第26回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第27回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第28回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第30回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第31回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                </ul>
+            </div>
+
             <div class="room-section" style="--room-color: var(--accent-green);">
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
-                <p>形のないアイデアが、目の前で立体になっていく感動！初心者向けの選び方から、ちょっとマニアックな条件出しまで挑戦しています。</p>
+                <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、現場を助けるちょっとマニアックな条件出しまで挑戦しています。</p>
                 <ul class="episode-list">
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：初めての3Dプリンターの選び方と失敗談</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：スクレイパーで怪我をしないための安全対策</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
+                    <li class="episode-item"><span class="episode-title">第1回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第2回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第4回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第8回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第12回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第18回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
-                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に動かす挑戦の記録です。</p>
+                <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
                 <ul class="episode-list">
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：NC旋盤のスコア記録アプリをStreamlitで作った話</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
+                    <li class="episode-item"><span class="episode-title">第6回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第9回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第10回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第17回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第23回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第25回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第29回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
-                <p>「難しそう」の代表格であるAI。文系や初心者でも、ハンダ付けの不良検出AIを作ったり、勉強にフル活用できる実験を行っています。</p>
+                <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
                 <ul class="episode-list">
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：G検定（ディープラーニング）に一発合格した私の勉強法</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="room-section" style="--room-color: var(--accent-blue);">
-                <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
-                <p>地域の小さな工場や、個人のガレージをデジタルでもっと便利に！泥臭く現場を変えていく挑戦の軌跡。</p>
-                <ul class="episode-list">
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：中小企業診断士の視点で見る、現場のデジタル化</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
+                    <li class="episode-item"><span class="episode-title">第11回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第13回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第15回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第20回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第21回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第24回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: #868E96;">
                 <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
-                <p>息抜きも大切。ゲームセンターのクレーンゲームの必勝法から、日々のちょっとした気づきまでゆるく話しています。</p>
+                <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンターのクレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
                 <ul class="episode-list">
-                    <li class="episode-item">
-                        <span class="episode-title">【仮】第○回：UFOキャッチャーの仕組みと、生産性向上の共通点</span>
-                        <a href="#" class="listen-link">聴く ➔</a>
-                    </li>
+                    <li class="episode-item"><span class="episode-title">第3回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第5回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第7回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第14回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第16回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第19回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
@@ -362,7 +367,7 @@
         <section id="otayori" class="contact-section">
             <h2 style="color: var(--accent-orange); margin-top: 0; font-weight:900;">📬 しょくにんさんにおたよりを送る</h2>
             <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
-                「私もこんなことに挑戦してみたい！」「この技術の話をもっと聴きたい！」という応援メッセージや、現場の悩みをぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
+                「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
             </p>
             <a href="#" class="btn-orange">おたよりを送ってみる！</a>
         </section>
