@@ -73,7 +73,7 @@
             padding: 30px 20px;
         }
 
-        /* ヒーローセクション：ジャケット写真と熱いメッセージ */
+        /* ヒーローセクション */
         .hero-flex {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -123,22 +123,42 @@
             font-weight: bold;
         }
 
+        /* リンクボタンの並び */
+        .sns-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
         .btn-spotify {
             background-color: #1DB954;
             color: white;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 14px rgba(29, 185, 84, 0.4);
-            transition: transform 0.2s;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(29, 185, 84, 0.3);
         }
 
-        .btn-spotify:hover {
-            transform: scale(1.03);
+        .btn-x {
+            background-color: #1A1A1A;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-spotify:hover, .btn-x:hover {
+            opacity: 0.9;
         }
 
         .clear {
@@ -155,7 +175,7 @@
             box-shadow: 6px 6px 0px var(--accent-blue);
         }
 
-        /* パターンA：カテゴリごとの部屋（縦並び） */
+        /* パターンA：部屋（縦並び） */
         .room-section {
             background-color: var(--bg-white);
             border: 3px solid var(--text-main);
@@ -177,7 +197,6 @@
             padding-bottom: 10px;
         }
 
-        /* エピソードリスト */
         .episode-list {
             list-style: none;
             padding: 0;
@@ -197,13 +216,8 @@
         }
 
         .episode-title {
-            text-decoration: none;
             color: var(--text-main);
             font-weight: bold;
-        }
-
-        .episode-title:hover {
-            color: var(--accent-blue);
         }
 
         .listen-link {
@@ -214,6 +228,7 @@
             color: var(--text-main);
             text-decoration: none;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .listen-link:hover {
@@ -235,18 +250,6 @@
             padding: 40px 20px;
             text-align: center;
             margin-top: 60px;
-        }
-
-        .btn-orange {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(255, 146, 43, 0.3);
         }
 
         footer {
@@ -286,9 +289,14 @@
                     💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
-                <a href="https://open.spotify.com/show/1K54U6u8D9Y0LwI7Z5W7vF" id="btn-spotify-main" target="_blank" class="btn-spotify">
-                    <span>🎧 Spotifyで番組を聴いてみる！</span>
-                </a>
+                <div class="sns-buttons">
+                    <a href="https://open.spotify.com/show/5bUuFmCbe1jV2G6P7jY9D3" target="_blank" class="btn-spotify">
+                        <span>🎧 Spotifyで聴く</span>
+                    </a>
+                    <a href="https://x.com/syokuninradio" target="_blank" class="btn-x">
+                        <span>𝕏 公式X (旧Twitter)</span>
+                    </a>
+                </div>
             </div>
             <div class="clear"></div>
         </section>
@@ -296,9 +304,7 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <div id="spotify-player-container">
-                <p class="loading-text">最新のプレイヤーをロード中...</p>
-            </div>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/5bUuFmCbe1jV2G6P7jY9D3?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <section id="rooms">
@@ -351,7 +357,7 @@
             <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
                 「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
             </p>
-            <a href="#" class="btn-orange">おたよりを送ってみる！</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange" style="margin-top:20px;">おたよりフォームを開く！</a>
         </section>
 
     </div>
@@ -362,28 +368,23 @@
     </footer>
 
     <script>
-        const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss";
-        // CORS回避用のプロキシサービスを利用してRSSを取得します
-        const API_URL = `https://api.allorigins.win/get?url=${encodeURIComponent(RSS_URL)}`;
+        // 別プロキシ（feed2json）を経由させることで、CORSエラーを完全に回避して超高速でJSON化します
+        const FEED_URL = "https://anchor.fm/s/106c91948/podcast/rss";
+        const JSON_API = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}`;
 
-        // しょくにんさんが指定したエピソード番号の割り振りルール
         const dxEpisodes = [22, 26, 27, 28, 30, 31];
         const printerEpisodes = [1, 2, 4, 8, 12, 18];
         const machineEpisodes = [6, 9, 10, 17, 23, 25, 29];
         const aiEpisodes = [11, 13, 15, 20, 21, 24];
         const chatEpisodes = [3, 5, 7, 14, 16, 19];
 
-        async function loadPodcastData() {
+        async function fetchPodcast() {
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(JSON_API);
                 const data = await response.json();
                 
-                // XMLデータのパース
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-                const items = xmlDoc.querySelectorAll("item");
+                if (data.status !== "ok") throw new Error("RSSデータが正常に取得できませんでした");
 
-                // 各部屋のリスト要素を取得
                 const lists = {
                     dx: document.getElementById("room-dx"),
                     printer: document.getElementById("room-3d"),
@@ -392,30 +393,17 @@
                     chat: document.getElementById("room-chat")
                 };
 
-                // 初期化（「読み込み中...」を消去）
+                // 初期化
                 Object.values(lists).forEach(list => list.innerHTML = "");
 
-                let isLatestSet = false;
+                data.items.forEach((item) => {
+                    const title = item.title;
+                    const link = item.link;
 
-                items.forEach((item) => {
-                    const title = item.querySelector("title").textContent;
-                    const link = item.querySelector("link").textContent;
-                    
-                    // Spotify用の埋め込みURLの生成（AnchorのURLからエピソード固有のIDを判別するか、標準リンクへ対応）
-                    // プレイヤーには最新のエピソードを表示するための処理
-                    if (!isLatestSet) {
-                        setLatestPlayer(link);
-                        isLatestSet = true;
-                    }
-
-                    // タイトルから「第XX回」や「XX話」の数字を抽出
+                    // タイトルからエピソード番号（数字）をスマートに検出
                     const numMatch = title.match(/第?\s*(\d+)\s*[回話]/) || title.match(/#(\d+)/) || title.match(/^(\d+)\s*[\.：:-]/);
-                    let epNum = null;
-                    if (numMatch) {
-                        epNum = parseInt(numMatch[1], 10);
-                    }
+                    let epNum = numMatch ? parseInt(numMatch[1], 10) : null;
 
-                    // HTML要素の作成
                     const li = document.createElement("li");
                     li.className = "episode-item";
                     li.innerHTML = `
@@ -423,7 +411,7 @@
                         <a href="${link}" target="_blank" class="listen-link">聴く ➔</a>
                     `;
 
-                    // 番号、またはタイトル内キーワードに基づいて部屋に自動振り分け
+                    // 部屋分け
                     if (epNum && dxEpisodes.includes(epNum)) {
                         lists.dx.appendChild(li);
                     } else if (epNum && printerEpisodes.includes(epNum)) {
@@ -435,7 +423,7 @@
                     } else if (epNum && chatEpisodes.includes(epNum)) {
                         lists.chat.appendChild(li);
                     } else {
-                        // 今後配信される新しい回などは、キーワード部分一致でも自動で安全に仕分ける（フォールバック）
+                        // 未来の配信用：タイトルキーワードでの自動判定ロジック
                         const t = title.toLowerCase();
                         if (t.includes("dx") || t.includes("デジタル") || t.includes("診断士")) {
                             lists.dx.appendChild(li);
@@ -451,43 +439,22 @@
                     }
                 });
 
-                // 万が一、割り当てられずに空になった部屋へのメッセージ
+                // 空の部屋への安全処理
                 Object.keys(lists).forEach(key => {
                     if (lists[key].children.length === 0) {
-                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">このテーマの新しいエピソードを準備中です！</span></li>';
+                        lists[key].innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">新しいエピソードを配信準備中！</span></li>';
                     }
                 });
 
             } catch (error) {
-                console.error("ポッドキャストデータの取得に失敗しました:", error);
-                // エラー時のフォールバック表示
-                document.getElementById("spotify-player-container").innerHTML = `
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/1K54U6u8D9Y0LwI7Z5W7vF?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                `;
+                console.error("通信エラー:", error);
+                Object.values(lists).forEach(list => {
+                    list.innerHTML = '<li class="episode-item"><span class="episode-title" style="color:var(--text-sub)">エピソードデータの読み込みに一時的な問題が発生しています。</span></li>';
+                });
             }
         }
 
-        // 最新回のURLをSpotifyの埋め込み形式に安全にコンバートしてプレイヤーを表示する関数
-        function setLatestPlayer(anchorLink) {
-            const container = document.getElementById("spotify-player-container");
-            
-            // Anchorの個別エピソードURL、またはSpotify showのURLから、埋め込みプレイヤーを安全に生成
-            // 確実な番組全体のWeb埋め込みプレイヤーコードを初期値として設定しつつ、最適化
-            let embedUrl = "https://open.spotify.com/embed/show/1K54U6u8D9Y0LwI7Z5W7vF?utm_source=generator";
-            
-            // もしURLが直接エピソードコードを含んでいる場合の変換ロジック
-            if (anchorLink.includes("spotify.com/episode/")) {
-                const epId = anchorLink.split("episode/")[1].split("?")[0];
-                embedUrl = `https://open.spotify.com/embed/episode/${epId}?utm_source=generator`;
-            }
-            
-            container.innerHTML = `
-                <iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            `;
-        }
-
-        // ページ読み込み時に自動実行
-        window.addEventListener("DOMContentLoaded", loadPodcastData);
+        window.addEventListener("DOMContentLoaded", fetchPodcast);
     </script>
 </body>
 </html>
