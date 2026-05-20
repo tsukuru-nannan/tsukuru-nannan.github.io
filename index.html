@@ -123,43 +123,22 @@
             font-weight: bold;
         }
 
-        /* 🔗 SNS・おたよりボタンエリアのスタイル調整 */
-        .sns-buttons-area {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .btn-link {
+        .btn-spotify {
+            background-color: #1DB954;
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(29, 185, 84, 0.4);
             transition: transform 0.2s;
         }
 
-        .btn-link:hover {
+        .btn-spotify:hover {
             transform: scale(1.03);
-        }
-
-        .btn-spotify {
-            background-color: #1DB954;
-            box-shadow: 0 4px 14px rgba(29, 185, 84, 0.4);
-        }
-
-        .btn-x {
-            background-color: #1A1A1A;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-form {
-            background-color: var(--accent-orange);
-            box-shadow: 0 4px 14px rgba(255, 146, 43, 0.3);
         }
 
         .clear {
@@ -262,11 +241,6 @@
             display: inline-block;
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(255, 146, 43, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .btn-orange:hover {
-            transform: scale(1.03);
         }
 
         footer {
@@ -306,17 +280,9 @@
                     💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
                 </div>
 
-                <div class="sns-buttons-area">
-                    <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp?si=zIcPyZodSn25eCM11UekAQ" target="_blank" class="btn-link btn-spotify">
-                        <span>🎧 Spotifyで全話を聴く！</span>
-                    </a>
-                    <a href="https://x.com/syokuninradio" target="_blank" class="btn-link btn-x">
-                        <span>𝕏 公式X (Twitter)</span>
-                    </a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-link btn-form">
-                        <span>📬 おたよりフォーム</span>
-                    </a>
-                </div>
+                <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp" target="_blank" class="btn-spotify">
+                    <span>🎧 Spotifyで全31回を聴いてみる！</span>
+                </a>
             </div>
             <div class="clear"></div>
         </section>
@@ -324,7 +290,7 @@
         <section id="latest" class="player-section">
             <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
             <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/2K26E9tYy8TfE0O21U0Nre?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0cvfNyNphMFJvcEDbmEgAp?utm_source=generator&theme=0" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
 
         <section id="rooms">
@@ -334,12 +300,12 @@
                 <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
                 <p>地域の小さな工場や現場をデジタルでもっと便利に！IoTの活用や診断士の視点を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第22回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第26回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第27回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第28回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第30回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第31回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第22回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第26回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第27回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第28回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第30回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第31回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
@@ -347,12 +313,12 @@
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
                 <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、現場を助けるちょっとマニアックな条件出しまで挑戦しています。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第1回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第2回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第4回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第8回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第12回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第18回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第1回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第2回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第4回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第8回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第12回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第18回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
@@ -360,13 +326,13 @@
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
                 <p>ものづくりの王様、工作機械！現役インストラクターの視点から、プロの技や古い機械を上手に安全に動かすための実験と挑戦の記録です。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第6回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第9回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第10回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第17回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第23回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第25回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第29回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第6回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第9回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第10回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第17回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第23回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第25回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第29回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
@@ -374,25 +340,25 @@
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
                 <p>一見「難しそう」に思えるAI技術。ハンダ付けの不良検出AIを組んでみたり、仕組みを泥臭く検証しながら、誰でも扱える武器へと変えていく部屋です。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第11回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第13回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第15回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第20回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第21回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第24回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第11回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第13回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第15回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第20回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第21回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第24回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
             <div class="room-section" style="--room-color: #868E96;">
                 <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
-                <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンター of クレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
+                <p>肩の力を抜いて、ものづくりの合間のひと息。ゲームセンターのクレーンゲームの話から、日々のちょっとした気づきをゆるく繋ぎます。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><span class="episode-title">第3回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第5回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第7回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第14回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第16回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><span class="episode-title">第19回エピソード</span><a href="https://open.spotify.com/show/2K26E9tYy8TfE0O21U0Nre" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第3回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第5回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第7回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第14回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第16回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><span class="episode-title">第19回エピソード</span><a href="#" class="listen-link">聴く ➔</a></li>
                 </ul>
             </div>
 
@@ -403,7 +369,7 @@
             <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
                 「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
             </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりを送ってみる！</a>
+            <a href="#" class="btn-orange">おたよりを送ってみる！</a>
         </section>
 
     </div>
