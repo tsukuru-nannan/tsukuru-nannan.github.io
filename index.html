@@ -485,21 +485,21 @@
           // 1. 最新回のタイトルを表示
           document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
           
-          // 2. Anchor（Spotify for Podcasters）のウェブ埋め込み用URLを生成
-          // RSSのlink（例: https://podcasters.spotify.com/pod/show/xxx/episodes/xxx）を
-          // 埋め込み用の /embed/episodes/xxx に安全に変換します
+          // 2. RSSのlinkからエピソードの固有IDを確実に抽出
           const itemLink = latestItem.link;
-          if (itemLink.includes('/episodes/')) {
-            const episodeSlug = itemLink.split('/episodes/')[1].split('?')[0];
+          const segments = itemLink.split('/');
+          let episodeId = segments[segments.length - 1].split('?')[0];
+          
+          if (episodeId) {
+            // 【超重要】Spotifyのセキュリティエラーを回避する最新のエンドポイント仕様
+            // embedの直後に /episode/ を明示し、ジェネレーター専用のパラメータを付与します
+            const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator&theme=0`;
             
-            // Anchor標準のスタイリッシュな単体プレイヤーURLを組み立て
-            const embedUrl = `https://podcasters.spotify.com/pod/show/syokuninradio/embed/episodes/${episodeSlug}`;
-            
-            // 3. プレイヤーを画面に表示（Spotifyとほぼ同じ横長の波形・再生ボタン付きプレイヤーになります）
-            const iframeHtml = `<iframe src="${embedUrl}" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>`;
+            // 3. 最初の回と同じ、横長で操作しやすい「高さ152px」の綺麗なプレイヤーを生成
+            const iframeHtml = `<iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
             
             document.getElementById('player-container').innerHTML = iframeHtml;
-            return; // 成功したらここで処理終了
+            return;
           }
         }
         fallbackPlayer();
@@ -509,10 +509,10 @@
       }
     }
 
-    // 万が一のエラーやURLの形式が違った場合のセーフティネット（番組全体のプレイヤー）
+    // 万が一の読み込みエラー時のバックアップ（番組全体の公式プレイヤー）
     function fallbackPlayer() {
       document.getElementById('latest-title').textContent = "再生ボタンを押すだけで、この場所でそのまま番組がスタートします！";
-      document.getElementById('player-container').innerHTML = `<iframe src="https://podcasters.spotify.com/pod/show/syokuninradio/embed" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px;"></iframe>`;
+      document.getElementById('player-container').innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/5K9X6Vn6WpxmPzE4mC5k4E?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
     }
 
     document.addEventListener("DOMContentLoaded", loadLatestPlayer);
