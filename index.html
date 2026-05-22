@@ -470,7 +470,7 @@
       <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
   </footer>
  
-  <script>
+<script>
     const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss"; 
     const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
@@ -482,39 +482,37 @@
         if (data.status === 'ok' && data.items.length > 0) {
           const latestItem = data.items[0];
           
-          // 1. テキスト部分を最新エピソードのタイトルに書き換え
+          // 1. 最新回のタイトルを表示
           document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
           
-          // 2. RSSの配信URL（link）からエピソード固有のID（末尾の文字列）を抽出
-          // 例: "https://podcasters.spotify.com/pod/show/6f0g.../episodes/xxxx-eeee" -> "xxxx-eeee"
+          // 2. Anchor（Spotify for Podcasters）のウェブ埋め込み用URLを生成
+          // RSSのlink（例: https://podcasters.spotify.com/pod/show/xxx/episodes/xxx）を
+          // 埋め込み用の /embed/episodes/xxx に安全に変換します
           const itemLink = latestItem.link;
-          const segments = itemLink.split('/');
-          const episodeId = segments[segments.length - 1];
-          
-          if (episodeId) {
-            // 3. 抽出したIDを使って、3枚目のような綺麗な単体プレイヤーを動的に作成
-            const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator`;
+          if (itemLink.includes('/episodes/')) {
+            const episodeSlug = itemLink.split('/episodes/')[1].split('?')[0];
             
-            const iframeHtml = `<iframe style="border-radius:12px" src="${embedUrl}" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+            // Anchor標準のスタイリッシュな単体プレイヤーURLを組み立て
+            const embedUrl = `https://podcasters.spotify.com/pod/show/syokuninradio/embed/episodes/${episodeSlug}`;
             
-            // ハコの中にプレイヤーを流し込む
+            // 3. プレイヤーを画面に表示（Spotifyとほぼ同じ横長の波形・再生ボタン付きプレイヤーになります）
+            const iframeHtml = `<iframe src="${embedUrl}" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>`;
+            
             document.getElementById('player-container').innerHTML = iframeHtml;
-          } else {
-            fallbackPlayer();
+            return; // 成功したらここで処理終了
           }
-        } else {
-          fallbackPlayer();
         }
+        fallbackPlayer();
       } catch (error) {
         console.error("最新プレイヤーの自動生成に失敗しました:", error);
         fallbackPlayer();
       }
     }
 
-    // 万が一RSSエラーが起きたときの予備表示（番組全体のプレイヤーを表示）
+    // 万が一のエラーやURLの形式が違った場合のセーフティネット（番組全体のプレイヤー）
     function fallbackPlayer() {
       document.getElementById('latest-title').textContent = "再生ボタンを押すだけで、この場所でそのまま番組がスタートします！";
-      document.getElementById('player-container').innerHTML = `<iframe style="border-radius:12px" src="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/31-RAGLMStudioAnythingLLMDX-e3jio92" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      document.getElementById('player-container').innerHTML = `<iframe src="https://podcasters.spotify.com/pod/show/syokuninradio/embed" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px;"></iframe>`;
     }
 
     document.addEventListener("DOMContentLoaded", loadLatestPlayer);
