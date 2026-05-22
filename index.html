@@ -373,8 +373,8 @@
  
       <section id="latest" class="player-section">
           <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
-          <p style="color:var(--text-sub); margin-bottom:20px;">再生ボタンを押すだけで、この場所でそのまま番組がスタートします！</p>
-          <iframe style="border-radius:12px" src="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/31-RAGLMStudioAnythingLLMDX-e3jio92" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p id="latest-title" style="font-weight: bold; color: var(--text-main); margin-bottom: 15px;">最新の配信データを読み込んでいます...</p>
+          <iframe id="latest-player" style="border-radius:12px" src="" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </section>
  
       <section id="otayori" class="contact-section">
@@ -466,6 +466,53 @@
       <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
       <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
   </footer>
- 
+
+  <script>
+    // 1. 指定されたAnchorのRSSフィードURL
+    const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss"; 
+    // 2. RSSを扱いやすいJSONに変換してくれる無料のパブリックAPIを利用
+    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+    async function fetchLatestPodcast() {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        if (data.status === 'ok' && data.items.length > 0) {
+          // 配列の先頭（0番目）が常に最新のエピソード
+          const latestItem = data.items[0];
+          
+          // ① プレイヤーの上のテキストを最新エピソードのタイトルに書き換える
+          document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
+          
+          // ② RSSフィード内のSpotify個別リンク（latestItem.link）を取得
+          const rawLink = latestItem.link;
+          
+          if (rawLink && rawLink.includes("spotify.com")) {
+            // URLから「episode/」の後ろにある固有のエピソードIDを切り出す
+            const parts = rawLink.split("episode/");
+            if (parts.length > 1) {
+              const episodeId = parts[1].split("?")[0];
+              
+              // ③ 切り出したIDを埋め込みプレイヤー用のURL（embed）に整形してセット
+              const embedUrl = `https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator`;
+              document.getElementById('latest-player').src = embedUrl;
+            }
+          } else {
+            // 万が一URLがうまく取得できない場合は、番組全体のコンパクトプレイヤーにフォールバック
+            document.getElementById('latest-player').src = "https://open.spotify.com/embed/show/6VbY3mN0FqM9o7k9vS893G?utm_source=generator";
+          }
+        } else {
+          document.getElementById('latest-title').textContent = "最新エピソードのタイトルを取得できませんでした";
+        }
+      } catch (error) {
+        console.error("RSSの取得または解析に失敗しました:", error);
+        document.getElementById('latest-title').textContent = "最新エピソードの読み込みに失敗しました";
+      }
+    }
+
+    // ページのHTML組み立てが終わったら自動で実行
+    document.addEventListener("DOMContentLoaded", fetchLatestPodcast);
+  </script>
 </body>
 </html>
