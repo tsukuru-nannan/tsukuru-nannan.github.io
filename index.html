@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFQ9NH8VN7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MFQ9NH8VN7');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFQ9NH8VN7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MFQ9NH8VN7');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>つくるって何なん？ | 公式ポッドキャスト</title>
@@ -70,6 +68,7 @@
           display: flex;
           flex-wrap: wrap;
           gap: 15px;
+          align-items: center;
       }
 
       nav a {
@@ -114,8 +113,7 @@
           left: 50%;
           transform: translateX(-50%);
           background-color: var(--bg-white);
-          min-width: 280px;
-          max-width: 350px;
+          min-width: 200px;
           border: 2px solid var(--text-main);
           border-radius: 8px;
           box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
@@ -132,13 +130,11 @@
       .dropdown-menu li a {
           display: block;
           padding: 10px 15px;
-          font-size: 0.85rem;
-          font-weight: normal;
+          font-size: 0.9rem;
+          font-weight: bold;
           color: var(--text-main);
           border-bottom: 1px solid #E2E8F0;
           white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis; /* 長いタイトルを三点リーダーにする */
       }
 
       .dropdown-menu li:last-child a {
@@ -322,6 +318,38 @@
           color: white;
       }
  
+      /* ラボ（作品集）セクション用のスタイル */
+      .lab-section {
+          background-color: var(--bg-white);
+          border: 3px solid var(--text-main);
+          border-radius: 16px;
+          padding: 30px;
+          margin-bottom: 40px;
+          box-shadow: 6px 6px 0px var(--accent-purple);
+      }
+
+      .lab-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+          margin-top: 20px;
+      }
+
+      .lab-card {
+          background-color: var(--bg-light);
+          border: 2px solid var(--text-main);
+          border-radius: 12px;
+          padding: 15px;
+          box-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+      }
+
+      .lab-card h4 {
+          margin-top: 0;
+          color: var(--text-main);
+          border-bottom: 2px solid var(--accent-purple);
+          padding-bottom: 5px;
+      }
+
       /* おたよりコーナー */
       .contact-section {
           background-color: #FFF9DB;
@@ -442,78 +470,20 @@
       <div class="header-container">
           <a href="#" class="logo">🛠️ つくるって何なん？</a>
           <nav>
-                <a href="#latest">最新回</a>
+                <a href="#latest">最新回・おたより</a>
                 
-                <!-- 製造業DXの部屋プルダウン -->
                 <div class="nav-item">
-                    <a href="#room-dx" class="dropdown-toggle" onclick="showRoom('room-dx')">製造業DX</a>
+                    <span class="dropdown-toggle" style="font-weight: bold; color: var(--text-main);">テーマ別の部屋</span>
                     <ul class="dropdown-menu">
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/33IoTArduinoAppSheetDX-e3jsdqs" target="_blank">33 切削液の管理を自動化！</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/31-RAGLMStudioAnythingLLMDX-e3jio92" target="_blank">31 ローローカルRAGを構築！</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/30-DX-Dify-DX-e3jbho9" target="_blank">30 Difyで猫店長のレシート印刷</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/AIIoT-DX-e3hh847" target="_blank">28 AIとIoTが現場をアップデート</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/27-APIDify-DX-e3h8oeh" target="_blank">27 APIとDifyにはじめて触れてみた</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/26-AI-DX-e3gt5n7" target="_blank">26 スマホで異常検知AIを作ってみた</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/22-AI-DX-e3g7d9h" target="_blank">22 現場作業者だからこそ学びたいAI</a></li>
+                        <li><a href="#rooms" onclick="showRoom('room-dx')">🏭 製造業DX</a></li>
+                        <li><a href="#rooms" onclick="showRoom('room-3d')">✨ 3Dプリンター</a></li>
+                        <li><a href="#rooms" onclick="showRoom('room-machine')">⚙️ 工作機械</a></li>
+                        <li><a href="#rooms" onclick="showRoom('room-ai')">🤖 AI（人工知能）</a></li>
+                        <li><a href="#rooms" onclick="showRoom('room-talk')">☕ 雑談・まったり</a></li>
                     </ul>
                 </div>
 
-                <!-- 3Dプリンターの部屋プルダウン -->
-                <div class="nav-item">
-                    <a href="#room-3d" class="dropdown-toggle" onclick="showRoom('room-3d')">3Dプリンターの部屋</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/AI3D-3D-e3fnfre" target="_blank">18 落書きからフィギュアを作った話</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/15-3D--3D-e3d98ov" target="_blank">15 オリジナルキーホルダー作り</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/12-3D-3D-e3a4i1p" target="_blank">12 3Dプリンター活用技術検定</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/8-3D3D---3D-3D-e37rls3" target="_blank">8 スマホで3Dスキャンプリント</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/4AI3D--3D-e362k81" target="_blank">4 生成AIがデータまで作ってくれる？</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/2-3D-3D-e359da6" target="_blank">2 工作機械でアクセサリー作り</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/1-3D-3D-e34urbg" target="_blank">1 スマホで3Dプリンタってできる？</a></li>
-                    </ul>
-                </div>
-
-                <!-- 工作機械の部屋プルダウン -->
-                <div class="nav-item">
-                    <a href="#room-machine" class="dropdown-toggle" onclick="showRoom('room-machine')">工作機械の部屋</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/35AI-e3l2loq" target="_blank">35 「髪の毛の太さ」より細かい削り出し</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/ep-e3iuanp" target="_blank">29 タッパーについて語りたい！</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/25-e3gnv5a" target="_blank">25 つくるって何だろう</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/23-e3gb2tp" target="_blank">23 工作機械こそ魔法みたい</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/17-e3f7sv6" target="_blank">17 ゴリゴリに学べる職業訓練校！</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/10-G-e38k5r4" target="_blank">10 プログラム、Gコードって何？</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/9-e38bd4v" target="_blank">9 機械を学ぶ価値ってなんなんだろう</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/6-e36i83t" target="_blank">6 工作機械の魅力、全力で語ります</a></li>
-                    </ul>
-                </div>
-
-                <!-- AIの部屋プルダウン -->
-                <div class="nav-item">
-                    <a href="#room-ai" class="dropdown-toggle" onclick="showRoom('room-ai')">AI（人工知能）の部屋</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/32GitHubGeminiHPAI---Python4AI-e3jngbq" target="_blank">32 GitHubとGeminiでHP作成！</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/24-JDLA-Connect-x-CDLE-All-HandsAI-AI-e3gn29f" target="_blank">24 JDLA Connect 参加レポート</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/21-RLHF-AI-e3g3h61" target="_blank">21 RLHFの最前線にいるらしい</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/20-AI-AI-e3g2teu" target="_blank">20 音声認識＋AIでマニュアル作成</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/13-AIG-AI-e3ammtj" target="_blank">13 AI活用入門！G検定ってなんだ？</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/11-AIAI-AI-e39vagf" target="_blank">11 フィジカルAIって何だ！？</a></li>
-                    </ul>
-                </div>
-
-                <!-- 雑談の部屋プルダウン -->
-                <div class="nav-item">
-                    <a href="#room-talk" class="dropdown-toggle" onclick="showRoom('room-talk')">雑談・まったり</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/34-AI-e3klq10" target="_blank">34 車内をハンダゴテで焼き溶かすハメに</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/16-e3ermom" target="_blank">16 若い頃勉強したほうがいいというバリア</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/14-e3cf071" target="_blank">14 なぜ現場合意が得られなかったのか</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/7-e376ekj" target="_blank">7 赤めて冷やして鋼が強くなる!?</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/OPENSUSITSUKUBA-CONNCT-e36cadb" target="_blank">5 誰もが半導体設計ができる時代に！？</a></li>
-                        <li><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/3-e35jfo7" target="_blank">3 しょくにんさんって何者？</a></li>
-                    </ul>
-                </div>
-
-                <a href="#otayori">おたより</a>
+                <a href="#lab">ラボ（作品集・実践記）</a>
           </nav>
       </div>
   </header>
@@ -558,12 +528,10 @@
           </div>
       </section>
  
-      <!-- テーマ別部屋セクション（JSで切り替え表示） -->
       <section id="rooms">
           <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:20px;">🧪 部屋をのぞいてみよう！</h2>
           <p style="text-align: center; color: var(--text-sub); margin-bottom: 30px; font-size: 0.9rem;">※上部のメニューから部屋を切り替えられます</p>
  
-          <!-- 製造業DX -->
           <div id="room-dx" class="room-section active" style="--room-color: var(--accent-blue);">
                 <h3 class="room-header" style="color:var(--accent-blue);">🏭 製造業DX（デジタル化）の部屋</h3>
                 <p>製造業の現場をデジタルでもっと便利に！IoTとAIの活用を交え、泥臭く現場を変えていく未来への挑戦の軌跡です。</p>
@@ -578,7 +546,6 @@
                 </ul>
           </div>
  
-          <!-- 3Dプリンター -->
           <div id="room-3d" class="room-section" style="--room-color: var(--accent-green);">
                 <h3 class="room-header" style="color:var(--accent-green);">✨ 3Dプリンターの部屋</h3>
                 <p>形のないアイデアが目の前で立体になっていく感動！初心者向けの選び方から、資格取得まで挑戦しています。</p>
@@ -593,7 +560,6 @@
                 </ul>
           </div>
  
-          <!-- 工作機械 -->
           <div id="room-machine" class="room-section" style="--room-color: var(--accent-orange);">
                 <h3 class="room-header" style="color:var(--accent-orange);">⚙️ 工作機械の部屋</h3>
                 <p>ものづくりの王様、工作機械！現役インストラクターの視点から、工作機械の面白さを伝えます。</p>
@@ -605,11 +571,10 @@
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/17-e3f7sv6" target="_blank" class="episode-title">17 ゴリゴリに学べる環境、それが職業訓練校！ 【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/17-e3f7sv6" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/10-G-e38k5r4" target="_blank" class="episode-title">10 工作機械を動かすプログラム、Gコードって何？ 【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/10-G-e38k5r4" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/9-e38bd4v" target="_blank" class="episode-title">9 機械を学ぶ価値ってなんなんだろう？ 【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/9-e38bd4v" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/6-e36i83t" target="_blank" class="episode-title">6 つくるって何なん？#6めっちゃ面白いんです！工作機械の魅力、全力で語らせてください! 【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/6-e36i83t" target="_blank" class="listen-link">聴出 ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/6-e36i83t" target="_blank" class="episode-title">6 つくるって何なん？#6めっちゃ面白いんです！工作機械の魅力、全力で語らせてください! 【工作機械】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/6-e36i83t" target="_blank" class="listen-link">聴く ➔</a></li>
                 </ul>
           </div>
  
-          <!-- AI（人工知能） -->
           <div id="room-ai" class="room-section" style="--room-color: var(--accent-purple);">
                 <h3 class="room-header" style="color:var(--accent-purple);">🤖 AI（人工知能）の部屋</h3>
                 <p>AI活用の資格（G検定）を持つしょくにんさんが、AIを誰でも扱える道具へと変えていく部屋です。</p>
@@ -617,92 +582,78 @@
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/32GitHubGeminiHPAI---Python4AI-e3jngbq" target="_blank" class="episode-title">32GitHubとGeminiで番組HPを作りました！サブタイトル：AIは「口だけ達者な新入社員」!? 部屋分けの泥沼からPythonで大逆転した4時間半の協働ストーリー【AI】 </a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/32GitHubGeminiHPAI---Python4AI-e3jngbq" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/24-JDLA-Connect-x-CDLE-All-HandsAI-AI-e3gn29f" target="_blank" class="episode-title">24 JDLA Connect x CDLE All Hands〜AI共創社会、学びが日本の実装を加速させるに参加してきました！ 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/24-JDLA-Connect-x-CDLE-All-HandsAI-AI-e3gn29f" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/21-RLHF-AI-e3g3h61" target="_blank" class="episode-title">21 RLHFの最前線にいるらしい 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/21-RLHF-AI-e3g3h61" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/20-AI-AI-e3g2teu" target="_blank" class="episode-title">20 音声認識＋AIでマニュアル作成している話 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/20-AI-AI-e3g2teu" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/20-AI-AI-e3g2teu" target="_blank" class="episode-title">20 音声認識＋AIでマニュアル作成 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/20-AI-AI-e3g2teu" target="_blank" class="listen-link">聴く ➔</a></li>
                     <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/13-AIG-AI-e3ammtj" target="_blank" class="episode-title">13 AI活用入門！G検定ってなんだ？ 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/13-AIG-AI-e3ammtj" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/11-AIAI-AI-e39vagf" target="_blank" class="episode-title">11 フィジカルAIって何だ！？ちゃんと勉強して落ち着こう！～フィジカルAI勉強会レポート～ 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/11-AIAI-AI-e39vagf" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/11-AIAI-AI-e39vagf" target="_blank" class="episode-title">11 フィジカルAIって何だ！？ 【AI】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/11-AIAI-AI-e39vagf" target="_blank" class="listen-link">聴く ➔</a></li>
                 </ul>
           </div>
- 
-          <!-- 雑談・まったり -->
-          <div id="room-talk" class="room-section" style="--room-color: #868E96;">
-                <h3 class="room-header" style="color:#868E96;">☕ 雑談・まったりトークの部屋</h3>
-                <p>日々のちょっとした気づきをゆるく話します。</p>
+
+          <div id="room-talk" class="room-section" style="--room-color: var(--accent-orange);">
+                <h3 class="room-header" style="color:var(--accent-orange);">☕ 雑談・まったりの部屋</h3>
+                <p>ものづくりの裏話から、日常のちょっとした気づきまで。ゆるりと語るリラックスエピソードです。</p>
                 <ul class="episode-list">
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/34-AI-e3klq10" target="_blank" class="episode-title">34 AIの「ポン付け」を信じたら車内をハンダゴテで焼き溶かすハメになった話（インプレッサディスプレイオーディオ導入記）【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/34-AI-e3klq10" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/16-e3ermom" target="_blank" class="episode-title">16 若い頃勉強したほうがいいという言葉のバリア～言葉より伝えたい大事なマインド～ 科学系ポッドキャストの日 【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/16-e3ermom" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/14-e3cf071" target="_blank" class="episode-title">14 なぜ現場合意が得られなかったのか？失敗した原因を評価してみた 【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/14-e3cf071" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/7-e376ekj" target="_blank" class="episode-title">7 つくるって何なん？ #7 赤めて冷やして鋼が強くなる!? 熱処理を身近に感じよう！ 【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/7-e376ekj" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/OPENSUSITSUKUBA-CONNCT-e36cadb" target="_blank" class="episode-title">5 誰もが半導体設計ができる時代に！？OPENSUSIって何だ？〜TSUKUBA CONNÉCTレポート〜 【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/OPENSUSITSUKUBA-CONNCT-e36cadb" target="_blank" class="listen-link">聴く ➔</a></li>
-                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/3-e35jfo7" target="_blank" class="episode-title">3 つくるって何なん？#3 しょくにんさんって何者？どうして番組を始めたの？【雑談】</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/3-e35jfo7" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/34-AI-e3klq10" target="_blank" class="episode-title">34 車内をハンダゴテで焼き溶かすハメに</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/34-AI-e3klq10" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/16-e3ermom" target="_blank" class="episode-title">16 若い頃勉強したほうがいいというバリア</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/16-e3ermom" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/14-e3cf071" target="_blank" class="episode-title">14 なぜ現場合意が得られなかったのか</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/14-e3cf071" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/7-e376ekj" target="_blank" class="episode-title">7 赤めて冷やして鋼が強くなる!?</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/7-e376ekj" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/OPENSUSITSUKUBA-CONNCT-e36cadb" target="_blank" class="episode-title">5 誰もが半導体設計ができる時代に！？</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/OPENSUSITSUKUBA-CONNCT-e36cadb" target="_blank" class="listen-link">聴く ➔</a></li>
+                    <li class="episode-item"><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/3-e35jfo7" target="_blank" class="episode-title">3 しょくにんさんって何者？</a><a href="https://podcasters.spotify.com/pod/show/kr2rhnd8s08/episodes/3-e35jfo7" target="_blank" class="listen-link">聴く ➔</a></li>
                 </ul>
           </div>
- 
+      </section>
+
+      <section id="lab" class="lab-section">
+          <h2 style="font-size:1.8rem; font-weight:900; color:var(--accent-purple); margin-top:0;">🧪 ラボ（作品集・実践記）</h2>
+          <p>ポッドキャスト内で登場したガジェットや、3Dプリンター・AIエージェントを活用した試作・実践の記録（公式Xポスト）をピックアップしています！</p>
+          
+          <div class="action-box" style="border-left-color: var(--accent-purple); background-color: rgba(204, 93, 232, 0.1);">
+              🤖 <strong>注目プロジェクト：</strong> OpenClaw ＋ OpenSCAD ＋ LINE を連携させ、AIエージェントが自動設計を行う仕組みを実験中！
+          </div>
+
+          <div class="lab-grid">
+              <div class="lab-card">
+                  <h4>📱 スマホケース</h4>
+                  <blockquote class="twitter-tweet" data-height="400" data-theme="light"><a href="https://x.com/syokuninradio/status/2071451444595823066"></a></blockquote>
+              </div>
+              
+              <div class="lab-card">
+                  <h4>⚙️ アブソリュート歯車おもちゃ</h4>
+                  <blockquote class="twitter-tweet" data-height="400" data-theme="light"><a href="https://x.com/syokuninradio/status/2071017772361167124"></a></blockquote>
+              </div>
+
+              <div class="lab-card">
+                  <h4>🌂 傘かけ便利グッズ</h4>
+                  <blockquote class="twitter-tweet" data-height="400" data-theme="light"><a href="https://x.com/syokuninradio/status/2070779800239948190"></a></blockquote>
+              </div>
+
+              <div class="lab-card">
+                  <h4>🧩 歯車おもちゃ</h4>
+                  <blockquote class="twitter-tweet" data-height="400" data-theme="light"><a href="https://x.com/syokuninradio/status/2070471688706490836"></a></blockquote>
+              </div>
+          </div>
       </section>
  
   </div>
- 
+
   <footer>
-      <p>© 2026 つくるって何なん？ All Rights Reserved.</p>
-      <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
+      <p>&copy; つくるって何なん？ All Rights Reserved.</p>
   </footer>
- 
-<script>
-    // --- 部屋を切り替えるJavaScript関数 ---
-    function showRoom(roomId) {
-        // すべての部屋のactiveクラスを外す
-        const rooms = document.querySelectorAll('.room-section');
-        rooms.forEach(room => room.classList.remove('active'));
 
-        // 指定された部屋にactiveクラスをつける
-        const targetRoom = document.getElementById(roomId);
-        if (targetRoom) {
-            targetRoom.classList.add('active');
-        }
-    }
-
-    const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss"; 
-    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
-
-    async function loadLatestPlayer() {
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        
-        if (data.status === 'ok' && data.items.length > 0) {
-          const latestItem = data.items[0];
-          
-          // 1. 最新回のタイトルを表示
-          document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
-          
-          // 2. Anchor（Spotify for Podcasters）のウェブ埋め込み用URLを生成
-          const itemLink = latestItem.link;
-          if (itemLink.includes('/episodes/')) {
-            const episodeSlug = itemLink.split('/episodes/')[1].split('?')[0];
-            
-            // Anchor標準のスタイリッシュな単体プレイヤーURLを組み立て
-            const embedUrl = `https://podcasters.spotify.com/pod/show/syokuninradio/embed/episodes/${episodeSlug}`;
-            
-            // 3. プレイヤーを画面に表示
-            const iframeHtml = `<iframe src="${embedUrl}" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>`;
-            
-            document.getElementById('player-container').innerHTML = iframeHtml;
-            return; // 成功したらここで処理終了
+  <script>
+      function showRoom(roomId) {
+          // すべての部屋を非表示にする
+          const rooms = document.querySelectorAll('.room-section');
+          rooms.forEach(room => {
+              room.classList.remove('active');
+          });
+          // 指定された部屋を表示する
+          const targetRoom = document.getElementById(roomId);
+          if (targetRoom) {
+              targetRoom.classList.add('active');
           }
-        }
-        fallbackPlayer();
-      } catch (error) {
-        console.error("最新プレイヤーの自動生成に失敗しました:", error);
-        fallbackPlayer();
       }
-    }
+  </script>
 
-    function fallbackPlayer() {
-      document.getElementById('latest-title').textContent = "再生ボタンを押すだけで、この場所でそのまま番組がスタートします！";
-      document.getElementById('player-container').innerHTML = `<iframe src="https://podcasters.spotify.com/pod/show/syokuninradio/embed" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px;"></iframe>`;
-    }
-
-    document.addEventListener("DOMContentLoaded", loadLatestPlayer);
-</script>
-
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
