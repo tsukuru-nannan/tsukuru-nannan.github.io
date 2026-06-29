@@ -645,7 +645,7 @@
       <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
   </footer>
 
-  <script>
+ <script>
       // カテゴリ部屋の表示切り替えロジック
       function showRoom(roomId) {
           const rooms = document.querySelectorAll('.room-section');
@@ -658,53 +658,60 @@
           }
       }
 
-  
-    const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss"; 
-    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+      const RSS_URL = "https://anchor.fm/s/106c91948/podcast/rss"; 
+      const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
-    async function loadLatestPlayer() {
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        
-        if (data.status === 'ok' && data.items.length > 0) {
-          const latestItem = data.items[0];
+      async function loadLatestPlayer() {
+        try {
+          const response = await fetch(API_URL);
+          const data = await response.json();
           
-          // 1. 最新回のタイトルを表示
-          document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
-          
-          // 2. Anchor（Spotify for Podcasters）のウェブ埋め込み用URLを生成
-          // RSSのlink（例: https://podcasters.spotify.com/pod/show/xxx/episodes/xxx）を
-          // 埋め込み用の /embed/episodes/xxx に安全に変換します
-          const itemLink = latestItem.link;
-          if (itemLink.includes('/episodes/')) {
-            const episodeSlug = itemLink.split('/episodes/')[1].split('?')[0];
+          if (data.status === 'ok' && data.items.length > 0) {
+            const latestItem = data.items[0];
             
-            // Anchor標準のスタイリッシュな単体プレイヤーURLを組み立て
-            const embedUrl = `https://podcasters.spotify.com/pod/show/syokuninradio/embed/episodes/${episodeSlug}`;
+            // 1. 最新回のタイトルを表示
+            document.getElementById('latest-title').textContent = `最新回：${latestItem.title}`;
             
-            // 3. プレイヤーを画面に表示（Spotifyとほぼ同じ横長の波形・再生ボタン付きプレイヤーになります）
-            const iframeHtml = `<iframe src="${embedUrl}" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>`;
-            
-            document.getElementById('player-container').innerHTML = iframeHtml;
-            return; // 成功したらここで処理終了
+            // 2. Anchor（Spotify for Podcasters）のウェブ埋め込み用URLを生成
+            const itemLink = latestItem.link;
+            if (itemLink.includes('/episodes/')) {
+              const episodeSlug = itemLink.split('/episodes/')[1].split('?')[0];
+              
+              // Anchor標準のスタイリッシュな単体プレイヤーURLを組み立て
+              const embedUrl = `https://podcasters.spotify.com/pod/show/syokuninradio/embed/episodes/${episodeSlug}`;
+              
+              // 3. プレイヤーを画面に表示
+              const iframeHtml = `<iframe src="${embedUrl}" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>`;
+              
+              document.getElementById('player-container').innerHTML = iframeHtml;
+              
+              // 💡【重要】プレイヤーの表示が100%成功したので、ここでXを読み込む
+              refreshXEmbed();
+              return; 
+            }
           }
+          fallbackPlayer();
+        } catch (error) {
+          console.error("最新プレイヤーの自動生成に失敗しました:", error);
+          fallbackPlayer();
         }
-        fallbackPlayer();
-      } catch (error) {
-        console.error("最新プレイヤーの自動生成に失敗しました:", error);
-        fallbackPlayer();
       }
-    }
 
-    // 万が一のエラーやURLの形式が違った場合のセーフティネット（番組全体のプレイヤー）
-    function fallbackPlayer() {
-      document.getElementById('latest-title').textContent = "再生ボタンを押すだけで、この場所でそのまま番組がスタートします！";
-      document.getElementById('player-container').innerHTML = `<iframe src="https://podcasters.spotify.com/pod/show/syokuninradio/embed" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px;"></iframe>`;
-    }
+      // 万が一のエラーやURLの形式が違った場合のセーフティネット（番組全体のプレイヤー）
+      function fallbackPlayer() {
+        document.getElementById('latest-title').textContent = "再生ボタンを押すだけで、この場所でそのまま番組がスタートします！";
+        document.getElementById('player-container').innerHTML = `<iframe src="https://podcasters.spotify.com/pod/show/syokuninradio/embed" width="100%" height="102px" frameborder="0" scrolling="no" style="border-radius: 8px;"></iframe>`;
+        
+        // 💡 エラーでフォールバックした場合もXを読み込む
+        refreshXEmbed();
+      }
 
-    document.addEventListener("DOMContentLoaded", loadLatestPlayer);
+      // 💡 Xのポストを強制的にスキャンして描画させる関数
+      function refreshXEmbed() {
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadLatestPlayer);
   </script>
-
-</body>
-</html>
