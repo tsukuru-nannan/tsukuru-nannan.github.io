@@ -388,6 +388,222 @@
           margin-top: 60px;
       }
 
+
+
+      /* --- 映像ヒーロー --- */
+      .hero-video-section {
+          position: relative;
+          overflow: hidden;
+          min-height: 520px;
+          border: 3px solid var(--text-main);
+          border-radius: 20px;
+          margin-bottom: 40px;
+          background: #111827;
+          box-shadow: 6px 6px 0px var(--text-main);
+      }
+
+      .hero-video-bg {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .hero-video-overlay {
+          position: absolute;
+          inset: 0;
+          background:
+              linear-gradient(135deg, rgba(12, 18, 29, 0.78), rgba(44, 62, 80, 0.48)),
+              linear-gradient(180deg, rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.38));
+      }
+
+      .hero-video-content {
+          position: relative;
+          z-index: 2;
+          min-height: 520px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          max-width: 760px;
+          margin: 0 auto;
+          padding: 56px 48px;
+          color: #FFFFFF;
+          text-align: center;
+          align-items: center;
+      }
+
+      .hero-kicker {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          width: fit-content;
+          margin-bottom: 18px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.14);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          font-size: 0.9rem;
+          font-weight: 800;
+          letter-spacing: 0.03em;
+      }
+
+      .hero-video-content h1 {
+          font-size: 3rem;
+          line-height: 1.15;
+          margin: 0 0 16px 0;
+          color: #FFFFFF;
+      }
+
+      .hero-lead {
+          font-size: 1.15rem;
+          line-height: 1.8;
+          margin: 0 0 24px 0;
+          color: rgba(255, 255, 255, 0.95);
+      }
+
+      .hero-badges {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-bottom: 22px;
+          justify-content: center;
+      }
+
+      .hero-badges span {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255, 255, 255, 0.14);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 999px;
+          padding: 8px 14px;
+          font-size: 0.95rem;
+          font-weight: 700;
+      }
+
+      .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 6px;
+          justify-content: center;
+      }
+
+      .btn-hero-primary,
+      .btn-hero-secondary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 14px 24px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: 900;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn-hero-primary {
+          background: var(--accent-yellow);
+          color: var(--text-main);
+          box-shadow: 0 8px 20px rgba(255, 212, 59, 0.25);
+      }
+
+      .btn-hero-secondary {
+          background: rgba(255, 255, 255, 0.16);
+          color: #FFFFFF;
+          border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .btn-hero-primary:hover,
+      .btn-hero-secondary:hover {
+          transform: translateY(-2px);
+      }
+
+      .hero-caption {
+          margin-top: 18px;
+          font-size: 0.92rem;
+          color: rgba(255, 255, 255, 0.8);
+      }
+
+      .latest-feature {
+          display: flex;
+          gap: 24px;
+          align-items: flex-start;
+      }
+
+      .latest-art {
+          width: 180px;
+          flex-shrink: 0;
+      }
+
+      .latest-art img {
+          width: 100%;
+          display: block;
+          height: auto;
+          border-radius: 14px;
+          border: 3px solid var(--text-main);
+          box-shadow: 4px 4px 0px var(--accent-yellow);
+      }
+
+      .latest-content {
+          flex: 1;
+          min-width: 0;
+      }
+
+      .room-switch-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          gap: 15px;
+          margin: 24px 0 30px;
+      }
+
+      .room-switch-btn {
+          width: 100%;
+          text-align: left;
+          background: var(--bg-white);
+          border: 3px solid var(--text-main);
+          border-radius: 16px;
+          padding: 16px 14px;
+          box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.08);
+          cursor: pointer;
+          font: inherit;
+          color: var(--text-main);
+          transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      }
+
+      .room-switch-btn strong {
+          display: block;
+          font-size: 1rem;
+          margin-bottom: 4px;
+      }
+
+      .room-switch-btn small {
+          display: block;
+          color: var(--text-sub);
+          line-height: 1.5;
+      }
+
+      .room-switch-btn:hover {
+          transform: translateY(-2px);
+      }
+
+      .room-switch-btn.is-active {
+          background: rgba(51, 154, 240, 0.08);
+          box-shadow: 6px 6px 0px rgba(51, 154, 240, 0.18);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+          .hero-video-bg {
+              display: none;
+          }
+
+          .hero-video-section {
+              background: linear-gradient(135deg, rgba(12, 18, 29, 0.92), rgba(44, 62, 80, 0.70)), url('hero-poster.jpg') center/cover no-repeat;
+          }
+      }
+
+
       /* スマートフォン用の画面調整 */
       @media (max-width: 768px) {
           header {
@@ -449,6 +665,47 @@
           .listen-link {
               align-self: flex-end;
           }
+
+          .hero-video-section {
+              min-height: 460px;
+          }
+          .hero-video-content {
+              min-height: 460px;
+              padding: 36px 22px;
+          }
+          .hero-video-content h1 {
+              font-size: 2.1rem;
+          }
+          .hero-lead {
+              font-size: 1rem;
+          }
+          .hero-badges {
+              gap: 8px;
+          }
+          .hero-badges span {
+              font-size: 0.88rem;
+          }
+          .hero-actions {
+              flex-direction: column;
+              align-items: center;
+              width: 100%;
+          }
+          .btn-hero-primary,
+          .btn-hero-secondary {
+              width: min(100%, 320px);
+              box-sizing: border-box;
+          }
+          .latest-feature {
+              flex-direction: column;
+          }
+          .latest-art {
+              width: 100%;
+              max-width: 180px;
+          }
+          .room-switch-grid {
+              grid-template-columns: 1fr;
+          }
+
           .contact-buttons {
               flex-direction: column;
               align-items: stretch;
@@ -467,10 +724,11 @@
       <div class="header-container">
           <a href="#" class="logo">🛠️ つくるって何なん？</a>
           <nav>
-                <a href="#latest">最新回・おたより</a>
-                 
+                <a href="#latest">最新回</a>
+                <a href="#lab">最近つくったもの</a>
+
                 <div class="nav-item">
-                    <span class="dropdown-toggle" style="font-weight: bold; color: var(--text-main);">テーマ別の部屋</span>
+                    <span class="dropdown-toggle" style="font-weight: bold; color: var(--text-main);">部屋をのぞく</span>
                     <ul class="dropdown-menu">
                         <li><a href="#rooms" onclick="showRoom('room-dx')">🏭 製造業DX</a></li>
                         <li><a href="#rooms" onclick="showRoom('room-3d')">✨ 3Dプリンター</a></li>
@@ -481,46 +739,55 @@
                     </ul>
                 </div>
 
-                <a href="#lab">ラボ（作品集・実践記）</a>
+                <a href="#otayori">おたより</a>
           </nav>
       </div>
   </header>
  
   <div class="container">
  
-      <section class="hero-flex">
-          <div class="hero-image-area">
-                <img src="jacket.png" alt="番組ジャケット" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'">
-          </div>
-          <div class="hero-text-area">
-                <h1>つくるって何なん？</h1>
-                <p>工作機械操作のインストラクターであり、中小企業診断士を目指す「<strong>しょくにんさん</strong>」が、製造業の現場にAIやIoTなどの最新技術を泥臭く導入し、製造業DXを進めていくリアルな挑戦を伝えるポッドキャスト番組です。</p>
-                 
-                <div class="action-box">
-                    💡 「難しそう…」と思うことでも、一歩踏み出して挑戦すれば、色々なことができる！そんなワクワクとアクションのキッカケを等身大でお届けします。
-                </div>
- 
-              <a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp" target="_blank" style="display: inline-block; background-color: #1DB954; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4); margin-right: 10px; margin-bottom: 10px;">
-                  <span>🎧 Spotifyで聴いてみる！</span>
-               </a>
-              <a href="https://www.youtube.com/channel/UCNb-dMM0Q_6WHa072qbMiFA" target="_blank" style="display: inline-block; background-color: #FF0000; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); margin-bottom: 10px;">
-                  <span>📺 YouTubeで見てみる！</span>
-              </a>         
+      <section id="hero" class="hero-video-section">
+          <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
+              <source src="hero.mp4" type="video/mp4">
+          </video>
+          <div class="hero-video-overlay"></div>
+          <div class="hero-video-content">
+              <div class="hero-kicker">🚀 ものづくりのワクワクを発信中</div>
+              <h1>つくるって何なん？</h1>
+              <p class="hero-lead">AI × 工作機械 × 3Dプリンター。<br>しょくにんさんが、つくる楽しさとリアルな挑戦をポッドキャストで発信しています。</p>
+
+              <div class="hero-badges">
+                  <span>🤖 AI</span>
+                  <span>⚙️ 工作機械</span>
+                  <span>✨ 3Dプリンター</span>
+              </div>
+
+              <div class="hero-actions">
+                  <a href="#latest" class="btn-hero-primary">🎧 最新回を聴く</a>
+                  <a href="https://www.youtube.com/channel/UCNb-dMM0Q_6WHa072qbMiFA" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">▶ YouTubeを見る</a>
+              </div>
+
           </div>
       </section>
  
       <section id="latest" class="player-section">
-          <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">📡 今すぐ聴ける最新エピソード</h2>
-          <p id="latest-title" style="font-weight: bold; color: var(--text-main); margin-bottom: 15px;">最新回を読み込んでいます...</p>
-          
-          <div id="player-container">
-              <p style="color:var(--text-sub);">読み込み中...</p>
+          <h2 style="margin-top:0; font-weight:900; color:var(--accent-blue);">🎧 NEW EPISODE</h2>
+          <div class="latest-feature">
+              <div class="latest-art">
+                  <img src="jacket.png" alt="番組ジャケット" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60'">
+              </div>
+              <div class="latest-content">
+                  <p id="latest-title" style="font-weight: bold; color: var(--text-main); margin-top: 0; margin-bottom: 15px; font-size: 1.05rem;">最新回を読み込んでいます...</p>
+                  <div id="player-container">
+                      <p style="color:var(--text-sub);">読み込み中...</p>
+                  </div>
+              </div>
           </div>
       </section>
  
       <section id="lab" class="lab-section">
-          <h2 style="font-size:1.8rem; font-weight:900; color:var(--accent-purple); margin-top:0;">🧪 ラボ（作品集・実践記）</h2>
-          <p>ポッドキャスト内で登場したガジェットや、3Dプリンター・AIエージェントを活用した試作・実践の記録（公式Xポスト）をピックアップしています！</p>
+          <h2 style="font-size:1.8rem; font-weight:900; color:var(--accent-purple); margin-top:0;">🧪 最近つくったもの</h2>
+          <p>ポッドキャストや日々の実験で生まれた作品・試作・チャレンジの記録です。まずは今までどおり、公式Xの投稿をベースに紹介しています。</p>
            
           <div class="action-box" style="border-left-color: var(--accent-purple); background-color: rgba(204, 93, 232, 0.1);">
               🤖 <strong>注目プロジェクト：</strong> OpenClaw ＋ OpenSCAD ＋ LINE を連携させ、AIエージェントが自動設計を行う仕組みを実験中！　ClaudeDesktop＋Fusion MCP連携にも挑戦中！
@@ -578,21 +845,33 @@
 </div>
       </section>
  
-      <section id="otayori" class="contact-section">
-          <h2 style="color: var(--accent-orange); margin-top: 0; font-weight:900;">📬 しょくにんさんにおたよりを送る</h2>
-          <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
-                「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
-          </p>
-          <div class="contact-buttons">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりフォームを開く</a>
-              <a href="https://x.com/syokuninradio" target="_blank" class="btn-orange" style="background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.3);">公式X (旧Twitter) を見る</a>
-          </div>
-      </section>
- 
       <section id="rooms">
-          <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:20px;">🧪 部屋をのぞいてみよう！</h2>
-          <p style="text-align: center; color: var(--text-sub); margin-bottom: 30px; font-size: 0.9rem;">※上部のメニューから部屋を切り替えられます</p>
- 
+          <h2 style="font-size:1.8rem; font-weight:900; text-align:center; margin-bottom:20px;">🚪 どの部屋をのぞく？</h2>
+          <p style="text-align: center; color: var(--text-sub); margin-bottom: 10px; font-size: 1rem;">気になるテーマから、しょくにんさんのエピソードをのぞいてみてください。</p>
+
+          <div class="room-switch-grid" aria-label="テーマ別の部屋一覧">
+              <button type="button" class="room-switch-btn is-active" data-room="room-dx" onclick="showRoom('room-dx')">
+                  <strong>🏭 製造業DX</strong>
+                  <small>現場のデジタル化、IoT、AI活用など</small>
+              </button>
+              <button type="button" class="room-switch-btn" data-room="room-3d" onclick="showRoom('room-3d')">
+                  <strong>✨ 3Dプリンター</strong>
+                  <small>造形、試作、資格、アイデアの実験</small>
+              </button>
+              <button type="button" class="room-switch-btn" data-room="room-machine" onclick="showRoom('room-machine')">
+                  <strong>⚙️ 工作機械</strong>
+                  <small>旋盤・フライス・加工の面白さ</small>
+              </button>
+              <button type="button" class="room-switch-btn" data-room="room-ai" onclick="showRoom('room-ai')">
+                  <strong>🤖 AI</strong>
+                  <small>生成AI、活用、学び、現場導入</small>
+              </button>
+              <button type="button" class="room-switch-btn" data-room="room-talk" onclick="showRoom('room-talk')">
+                  <strong>☕ 雑談</strong>
+                  <small>裏話、気づき、まったりトーク</small>
+              </button>
+          </div>
+
 <p id="episode-status" role="status" aria-live="polite" style="text-align:center;">エピソードを読み込んでいます...</p>
           <noscript><p>エピソード一覧の表示にはJavaScriptが必要です。<a href="https://open.spotify.com/show/0cvfNyNphMFJvcEDbmEgAp">Spotifyで全エピソードを聴く</a></p></noscript>
 
@@ -631,6 +910,17 @@
     <ul id="episode-other" class="episode-list"></ul>
 </div>
       </section>
+ 
+      <section id="otayori" class="contact-section">
+          <h2 style="color: var(--accent-orange); margin-top: 0; font-weight:900;">📬 しょくにんさんにおたよりを送る</h2>
+          <p style="max-width: 600px; margin: 0 auto; font-weight: bold;">
+                「私も新しい技術に挑戦してみたい！」「現場のDXについて聞いてほしい」というメッセージや応援の声をぜひ教えてください。あなたの声が、次の挑戦のエネルギーになります！
+          </p>
+          <div class="contact-buttons">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpQyxuZEk4K7SZL8uT_UPF9QvhZTEKtKvFcpPB-wWZNB4K4A/viewform?usp=dialog" target="_blank" class="btn-orange">おたよりフォームを開く</a>
+              <a href="https://x.com/syokuninradio" target="_blank" class="btn-orange" style="background-color: #1DA1F2; box-shadow: 0 4px 10px rgba(29, 161, 242, 0.3);">公式X (旧Twitter) を見る</a>
+          </div>
+      </section>
 
       
  
@@ -660,6 +950,9 @@
           if (!target) return;
           document.querySelectorAll('.room-section').forEach(room => {
               room.classList.toggle('active', room === target);
+          });
+          document.querySelectorAll('.room-switch-btn').forEach(button => {
+              button.classList.toggle('is-active', button.dataset.room === roomId);
           });
       }
 
@@ -791,6 +1084,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+          showRoom('room-dx');
           loadEpisodes();
           refreshXEmbed();
       });
