@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="しょくにんさんの技術活動・実績。機械加工、CAD/CAM、生成AI、画像検査AI、製造業DX、技能継承の取り組みを紹介します。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="技術活動・実績 | しょくにんさん">
+  <meta property="og:description" content="機械加工 × AI × 製造業DX。現場の技術とデジタル技術をつなぐ実践記録。">
+  <title>技術活動・実績 | しょくにんさん | つくるって何なん？</title>
+  <style>
+    :root { --bg-light:#F7F9FA; --bg-white:#FFFFFF; --text-main:#2C3E50; --text-sub:#667785; --accent-yellow:#FFD43B; --accent-orange:#FF922B; --accent-blue:#339AF0; --accent-green:#51CF66; --accent-purple:#CC5DE8; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg-light); color:var(--text-main); font-family:'Helvetica Neue',Arial,'Noto Sans JP',sans-serif; line-height:1.75; }
+    a { color:#1669a9; }
+    a:focus-visible { outline:3px solid var(--accent-blue); outline-offset:3px; }
+    .site-header { position:sticky; top:0; z-index:10; background:#fff; border-bottom:4px solid var(--accent-yellow); box-shadow:0 2px 10px #0000000b; }
+    .header-container { max-width:1060px; margin:auto; padding:13px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .logo { text-decoration:none; font-size:1.4rem; font-weight:900; color:var(--accent-orange); }
+    nav { display:flex; gap:18px; flex-wrap:wrap; }
+    nav a { font-weight:800; font-size:.94rem; color:var(--text-main); text-decoration:none; }
+    nav a:hover { color:#1877c9; }
+    .wrapper { max-width:1060px; margin:auto; padding:34px 20px 66px; }
+    .hero { position:relative; overflow:hidden; background:linear-gradient(125deg,#152c39,#21455a 65%,#22666c); border:3px solid var(--text-main); border-radius:20px; color:white; padding:52px 52px 48px; box-shadow:6px 6px 0 var(--text-main); margin-bottom:46px; }
+    .hero::after { content:'⚙'; position:absolute; right:-20px; bottom:-155px; font-size:350px; opacity:.07; line-height:1; pointer-events:none; }
+    .eyebrow { margin:0 0 12px; font-size:.9rem; color:#ffe7a5; font-weight:800; letter-spacing:.05em; }
+    h1 { font-size:clamp(2rem,4.8vw,3.3rem); line-height:1.25; margin:0 0 16px; font-weight:900; }
+    .hero p { max-width:780px; font-size:1.09rem; position:relative; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+    .tags span { display:inline-block; border-radius:99px; background:#ffffff22; border:1px solid #ffffff4d; padding:6px 12px; font-size:.87rem; font-weight:750; }
+    .section-title { font-size:1.65rem; font-weight:900; margin:45px 0 16px; }
+    .lead { color:#4d5b67; margin-top:0; }
+    .card { border:3px solid var(--text-main); border-radius:16px; background:white; padding:27px; box-shadow:6px 6px 0 var(--accent-blue); margin-bottom:26px; }
+    .card.purple { box-shadow:6px 6px 0 var(--accent-purple); }
+    .card.orange { box-shadow:6px 6px 0 var(--accent-orange); }
+    .card.green { box-shadow:6px 6px 0 var(--accent-green); }
+    .card h3 { margin:6px 0 10px; font-size:1.4rem; line-height:1.4; }
+    .pill { display:inline-block; background:#eff5f8; color:#415261; padding:4px 11px; border-radius:30px; font-size:.8rem; font-weight:800; }
+    .card-layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(270px,1fr); gap:24px; align-items:start; }
+    .card-layout > * { min-width:0; }
+    h4 { margin:17px 0 5px; font-size:1rem; }
+    ul { padding-left:1.35em; margin:8px 0 14px; }
+    li { padding:2px 0; }
+    .note { background:#f1f6fa; border-left:5px solid var(--accent-blue); padding:12px 14px; border-radius:0 9px 9px 0; font-size:.91rem; }
+    .embed { padding:10px; background:#f3f6f8; border:1px solid #dce4ea; border-radius:12px; min-height:120px; }
+    .embed p { font-size:.88rem; margin:3px 0 10px; }
+    .embed blockquote { margin:0 auto !important; }
+    .link-btn { display:inline-block; background:var(--accent-yellow); border:2px solid var(--text-main); border-radius:40px; padding:10px 16px; color:var(--text-main); text-decoration:none; font-weight:800; box-shadow:3px 3px 0 #2c3e50; margin-top:7px; }
+    .link-btn:hover { transform:translateY(-1px); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .mini { border:2px solid #d4dee6; border-radius:13px; padding:18px; background:white; }
+    .mini h3 { font-size:1.08rem; margin:0 0 6px; }
+    .mini p { margin:0; font-size:.94rem; }
+    .callout { border:2px dashed var(--accent-orange); background:#fff9df; border-radius:15px; padding:22px; }
+    footer { text-align:center; padding:28px 15px; border-top:2px solid #dce4ea; color:var(--text-sub); }
+    .small { font-size:.84rem; color:var(--text-sub); }
+    @media(max-width:780px) { .header-container { flex-direction:column; align-items:center; } nav { gap:10px 16px; justify-content:center; } .wrapper { padding:20px 13px 42px; } .hero { padding:34px 22px; } .card { padding:19px; } .card-layout { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } .section-title { font-size:1.4rem; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a class="logo" href="./index.html">🛠️ つくるって何なん？</a>
+      <nav aria-label="サイト内ナビゲーション"><a href="./index.html">番組トップ</a><a href="#projects">活動実績</a><a href="#skills">専門分野</a><a href="#connect">技術交流</a></nav>
+    </div>
+  </header>
+  <main class="wrapper">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">しょくにんさん / TECH PORTFOLIO</p>
+      <h1 id="hero-title">機械加工 × AIで、<br>製造現場の課題解決へ。</h1>
+      <p>工作機械の操作指導を仕事としながら、CAD/CAM、データ分析、画像検査AI、生成AIを使った技能継承に挑戦しています。実際に手を動かして学び、現場で役立つ形にすることを大切にしています。</p>
+      <div class="tags"><span>⚙️ 機械加工・技術指導</span><span>📐 CAD/CAM</span><span>🤖 AI・製造業DX</span><span>📘 技能継承</span></div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">🏆 技術活動・プロジェクト実績</h2>
+      <p class="lead">取り組んだ課題、担当した内容、得られた成果を整理しています。チーム全体の成果と個人の担当範囲は分けて記載しています。</p>
+
+      <article class="card" aria-labelledby="project-collab">
+        <span class="pill">企業との協働経験 / 製造データ分析</span>
+        <h3 id="project-collab">01｜射出成形工程の異常要因分析・データ活用</h3>
+        <p><strong>地域協働プログラム／製造業の課題に取り組む6名チーム</strong></p>
+        <div class="card-layout">
+          <div>
+            <h4>取り組んだ課題</h4>
+            <p>プラスチック射出成形機のセンサーデータを活用し、成形不良につながる異常要因の検討と、現場でのデータ活用につなげる取り組み。</p>
+            <h4>自分が担当したこと</h4>
+            <ul>
+              <li>ファシリテーターとして企業側と分析チームの橋渡し・調整</li>
+              <li>成形動作波形の重ね合わせ表示や拡大分析、異常要因の仮説共有</li>
+              <li>DX推進担当者・現場担当者へ仮説を共有し、現場での検証を依頼</li>
+              <li>Pythonで成形動作データの切り出しプログラムを開発し、納品</li>
+              <li>学習教材やツールの操作手順書を作成</li>
+            </ul>
+            <h4>チームとして得られた成果</h4>
+            <p>射出異常電流とショート不良の相関を確認。データ可視化を通じて品質改善に向けた仮説検証や現場でのデータ活用を後押ししました。</p>
+          </div>
+          <aside class="note">
+            <strong>この経験から</strong><br>
+            分析結果を現場と共有し、使えるツールと手順書まで届けることの重要性を実感しました。<br><br>
+            <span class="small">※共同成果であり、一人で実施したプロジェクトではありません。社内データや納品プログラムは公開していません。</span>
+          </aside>
+        </div>
+      </article>
+
+      <article class="card purple" aria-labelledby="project-ai">
+        <span class="pill">機械学習 / AI画像検査</span>
+        <h3 id="project-ai">02｜マナビDX Quest 2026 画像検査AI</h3>
+        <div class="card-layout">
+          <div>
+            <p><strong>テーマ2「目視検査をAIに！」演習3・Privateデータによる最終ランキング1位（同率）🥇</strong></p>
+            <p>画像検査AIの課題に取り組み、機械学習モデルの改善を重ねました。演習とは別に、電子基板の良品・不良品を用意して検査装置と検査アプリの試作にも挑戦しました。</p>
+            <h4>取り組みのポイント</h4>
+            <ul>
+              <li>画像からの良否・異常判定モデルの検証と改善</li>
+              <li>電子基板を使った小規模な検査装置・アプリの試作</li>
+              <li>精度評価と、実際の現場実装に必要な検証の違いを学習</li>
+            </ul>
+            <p class="small">※演習のランキング成績は、試作検査装置が実用化されたことや現場での性能を保証するものではありません。</p>
+            <a class="link-btn" href="https://x.com/syokuninradio/status/2116051774012559831" target="_blank" rel="noopener noreferrer">Xで成果報告・写真を見る ↗</a>
+          </div>
+          <div class="embed">
+            <p><strong>📣 演習3・ランキング1位の投稿</strong></p>
+            <blockquote class="twitter-tweet" data-theme="light" data-width="480"><a href="https://x.com/syokuninradio/status/2116051774012559831">Xの投稿を開く</a></blockquote>
+            <p class="small">Xの埋め込みが表示されない場合は、左のリンクから確認できます。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card orange" aria-labelledby="project-cam">
+        <span class="pill">CAD/CAM / 生成AI / 教材作成</span>
+        <h3 id="project-cam">03｜Fusion CAM操作動画からのAIマニュアル化</h3>
+        <div class="card-layout">
+          <div>
+            <p>FusionのCAM操作を音声付き動画で記録し、文字起こしと合わせてChatGPTに渡して、PowerPoint形式の操作マニュアルを試作しました。</p>
+            <h4>試したこと</h4>
+            <ul>
+              <li>CAM操作の様子と音声説明を記録</li>
+              <li>文字起こしをもとに説明内容を整理</li>
+              <li>操作場面のスクリーンショットと説明文を組み合わせて資料化</li>
+              <li>学生配布用を想定し、手順の分かりやすさを検討</li>
+            </ul>
+            <h4>現時点の評価</h4>
+            <p>生成結果はまだ「たたき台」の段階で、人による内容確認と修正が必要です。一方で、作業しながら説明した内容を手順書に変える、技能継承支援への可能性を感じています。</p>
+            <a class="link-btn" href="https://x.com/syokuninradio/status/2113914940323201172" target="_blank" rel="noopener noreferrer">Xで操作動画・生成例を見る ↗</a>
+          </div>
+          <div class="embed">
+            <p><strong>🎬 元動画と作成資料の紹介投稿</strong></p>
+            <blockquote class="twitter-tweet" data-theme="light" data-width="480"><a href="https://x.com/syokuninradio/status/2113914940323201172">Xの投稿を開く</a></blockquote>
+            <p class="small">※AIで作った手順書は、設備・安全・加工条件を現場担当者が確認する必要があります。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card green" aria-labelledby="project-machining">
+        <span class="pill">技術指導 / ものづくり</span>
+        <h3 id="project-machining">04｜工作機械・CAD/CAM・3Dプリンター</h3>
+        <p>旋盤、フライス盤、NC旋盤、マシニングセンタなどの加工技術や、安全で確実な作業手順の指導に携わっています。Fusionを使ったモデリング・CAM、3Dプリンターによる試作、NCプログラムの検証にも取り組んでいます。</p>
+        <p>現場で「動くこと」と「安心して使えること」は別。工具経路や加工条件の確認を大切にしながら、AIを活用できる範囲を探っています。</p>
+      </article>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">🧰 技術分野</h2>
+      <div class="grid">
+        <div class="mini"><h3>⚙️ 機械加工・教育</h3><p>普通旋盤／NC旋盤／フライス盤／MC／加工実習・操作指導</p></div>
+        <div class="mini"><h3>📐 CAD/CAM・試作</h3><p>Fusion／NCプログラム検証／3Dプリンター／治具・教材試作</p></div>
+        <div class="mini"><h3>🤖 データ・AI活用</h3><p>Python／データ可視化／画像異常検知／AIによるマニュアル化</p></div>
+      </div>
+    </section>
+
+    <section id="connect" aria-labelledby="connect-title">
+      <h2 class="section-title" id="connect-title">🤝 技術交流・企業との協働に向けて</h2>
+      <div class="callout">
+        <p>地域の製造業が抱える、機械加工、人材育成、品質検査、技能継承などの課題に関心があります。現場の知識とAI・デジタル技術を組み合わせて、小さく試し、改善する活動を続けていきたいと考えています。</p>
+        <p>技術者・企業・教育関係者の皆さんとの情報交換を歓迎します。</p>
+        <a class="link-btn" href="https://x.com/syokuninradio" target="_blank" rel="noopener noreferrer">Xで活動を見る・交流する ↗</a>
+        <p class="small">※このページは個人の技術活動・実績紹介です。有償支援サービスの募集・契約案内ではありません。業務上の資料や個別企業の非公開情報は掲載していません。</p>
+      </div>
+    </section>
+  </main>
+  <footer><p>© つくるって何なん？ / しょくにんさん</p><p><a href="./index.html">ポッドキャストのトップへ戻る</a></p></footer>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
