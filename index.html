@@ -11,6 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>つくるって何なん？ | 公式ポッドキャスト</title>
+  <link rel="stylesheet" href="lab.css">
   <style>
       /* 全体のスタイル定義：明るくポップな秘密基地・ブロック玩具のような世界観 */
       :root {
@@ -794,7 +795,8 @@
               🤖 <strong>注目プロジェクト：</strong> OpenClaw ＋ OpenSCAD ＋ LINE を連携させ、AIエージェントが自動設計を行う仕組みを実験中！　ClaudeDesktop＋Fusion MCP連携にも挑戦中！
           </div>
 
-          <div class="lab-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%;">
+          <p id="lab-status" class="lab-status" role="status"></p>
+          <div id="lab-grid" class="lab-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%;">
     <div class="lab-card" style="box-sizing: border-box; width: 100%; min-width: 0;">
         <h4>📱 スマホケース</h4>
         <blockquote class="twitter-tweet" data-theme="light" data-width="100%">
@@ -932,17 +934,7 @@
       <p style="font-size: 0.8rem; color: var(--text-sub);">ものづくりをもっと身近に、もっと楽しく！ | Powered by GitHub Pages</p>
  </footer>
 
-  <script>
-    window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      t._e = []; t.ready = function(f) { t._e.push(f); };
-      return t;
-    }(document, "script", "twitter-wjs"));
-  </script>
+  <script src="lab.js"></script>
 
   <!-- RSSから自動生成された同一のJSONで、最新回とテーマ別一覧を表示 -->
   <script>
@@ -1078,16 +1070,9 @@
           }
       }
 
-      function refreshXEmbed() {
-          if (!window.twttr) return;
-          if (window.twttr.widgets) window.twttr.widgets.load();
-          else window.twttr.ready(twttr => twttr.widgets.load());
-      }
-
       document.addEventListener('DOMContentLoaded', () => {
           showRoom('room-dx');
           loadEpisodes();
-          refreshXEmbed();
       });
   </script>
 
