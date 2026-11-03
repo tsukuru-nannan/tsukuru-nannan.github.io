@@ -126,7 +126,7 @@
 
   function loadTwitterEmbeds(grid) {
     if (!grid || grid.dataset.widgetsLoaded === '1') return;
-    var quotes = Array.prototype.slice.call(grid.querySelectorAll('blockquote.twitter-tweet, blockquote[data-tweet-pending]'));
+    var quotes = Array.prototype.slice.call(grid.querySelectorAll('blockquote.twitter-tweet, blockquote[data-tweet-pending], blockquote[data-lab-fallback]'));
     if (!quotes.length) return;
     grid.dataset.widgetsLoaded = '1';
     quotes.forEach(function (quote) {
@@ -192,11 +192,17 @@
     if (status) status.textContent = text;
   }
 
+  function labItems(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.items)) return data.items;
+    return null;
+  }
+
   function renderEntrance(data, grid) {
     var categories = validCategories(data);
-    var items = Array.isArray(data.items) ? data.items.filter(function (item) {
+    var items = labItems(data).filter(function (item) {
       return item && typeof item === 'object';
-    }) : [];
+    });
     if (!categories.length) {
       renderCards(sortNewest(items), grid);
       loadTwitterEmbeds(grid);
@@ -238,7 +244,7 @@
   function renderRoom(data, roomId, grid) {
     var categories = validCategories(data);
     var known = knownCategoryIds(categories);
-    var items = (Array.isArray(data.items) ? data.items : []).filter(function (item) {
+    var items = (labItems(data) || []).filter(function (item) {
       return item && typeof item === 'object' && resolveCategory(item, known) === roomId;
     });
     items = sortNewest(items);
@@ -290,7 +296,7 @@
       var response = await fetch(labJsonUrl(), { cache: 'no-store', signal: controller.signal });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       var data = await response.json();
-      if (!data || !Array.isArray(data.items)) throw new Error('lab.jsonの形式を確認してください');
+      if (!labItems(data)) throw new Error('lab.jsonの形式を確認してください');
       if (roomId) renderRoom(data, roomId, grid);
       else renderEntrance(data, grid);
     } catch (error) {
@@ -300,6 +306,19 @@
       window.clearTimeout(timer);
     }
   }
+
+  // widgets.js は読み込み時に .twitter-tweet を自動描画する。
+  // 部屋の入口に差し替える前にクラスを外し、最終的なカードが決まってから一度だけ描画する。
+  (function disarmFallbackQuotes() {
+    if (document.body.dataset.labRoom) return;
+    var grid = document.getElementById('lab-grid');
+    if (!grid) return;
+    var quotes = grid.querySelectorAll('blockquote.twitter-tweet');
+    for (var i = 0; i < quotes.length; i++) {
+      quotes[i].classList.remove('twitter-tweet');
+      quotes[i].setAttribute('data-lab-fallback', 'true');
+    }
+  })();
 
   document.addEventListener('DOMContentLoaded', start);
 })();
