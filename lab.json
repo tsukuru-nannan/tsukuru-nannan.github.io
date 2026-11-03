@@ -1,75 +1,483 @@
 {
   "updated": "2026-11-03",
+  "categories": [
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "emoji": "🦞",
+      "description": "LINEで話しかけるだけで、OpenClawがOpenSCADを動かして3Dモデルを作る。歯車おもちゃや便利グッズの記録です。"
+    },
+    {
+      "id": "grokbot",
+      "name": "Grok Bot",
+      "emoji": "🤖",
+      "description": "Grok Botに頼んで作ってもらったもの。身近な困りごとをAIにモデリングしてもらう実験です。"
+    },
+    {
+      "id": "ai-inspection",
+      "name": "AI目視検査機",
+      "emoji": "🔍",
+      "description": "基板のはんだ不良を画像からAIで判定する、検査機・アプリの自作記録です。"
+    },
+    {
+      "id": "ai-cad",
+      "name": "AI×CAD/CAM",
+      "emoji": "📐",
+      "description": "Claude・Codex・ChatGPTとFusionをつなげて、設計・CAM・ポスト・マニュアルづくりに挑戦した記録です。"
+    },
+    {
+      "id": "machining",
+      "name": "機械加工",
+      "emoji": "🔧",
+      "description": "Fusion CAMでパスを作り、マシニングセンタやターニングセンタで実際に削ったものの記録です。"
+    },
+    {
+      "id": "tools",
+      "name": "自作ツール・実験",
+      "emoji": "🧪",
+      "description": "Arduino・Dify・音声クローンなど、仕事や家庭で試した自作ツールや実験の記録です。"
+    }
+  ],
   "items": [
     {
       "id": "smartphone-case",
+      "category": "openclaw",
       "emoji": "📱",
       "title": "スマホケース",
       "description": "3Dプリンターでいつか作りたかったスマホケースを、OpenClaw＋LINEで完成。形はGoogle AI検索で作ったプロンプトから起こし、印刷しながら各ボタンやライトニングケーブルとの干渉を修正。",
       "tweet_url": "https://x.com/syokuninradio/status/2071451444595823066",
       "date": "2026-06-29",
-      "tools": ["OpenClaw", "LINE", "3Dプリンター"],
-      "tags": ["3Dプリンター", "AI設計"]
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "3Dプリンター",
+        "AI設計"
+      ]
     },
     {
       "id": "involute-gear-toy",
+      "category": "openclaw",
       "emoji": "⚙️",
       "title": "インボリュート歯車おもちゃ",
       "description": "OpenClaw＋LINEで作ったインボリュート歯車のおもちゃ。歯形が長方形だった以前の歯車よりも、だいぶ滑らかに回るようになった。LLMはGemini 3.1 Flash。",
       "tweet_url": "https://x.com/syokuninradio/status/2071017772361167124",
       "date": "2026-06-28",
-      "tools": ["OpenClaw", "LINE", "Gemini 3.1 Flash", "3Dプリンター"],
-      "tags": ["歯車", "機械要素", "AI設計"]
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "Gemini 3.1 Flash",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "歯車",
+        "機械要素",
+        "AI設計"
+      ]
     },
     {
       "id": "umbrella-hook",
+      "category": "openclaw",
       "emoji": "🌂",
       "title": "傘かけ便利グッズ",
       "description": "下駄箱に傘を引っかける部品をOpenClaw＋LINEで設計。イメージどおりの形を指示するのは難しかったが、XYZの座標系をきちんと理解して形にしてくれた。",
       "tweet_url": "https://x.com/syokuninradio/status/2070779800239948190",
       "date": "2026-06-27",
-      "tools": ["OpenClaw", "LINE", "3Dプリンター"],
-      "tags": ["便利グッズ", "AI設計"]
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "便利グッズ",
+        "AI設計"
+      ]
     },
     {
       "id": "gear-keychain-toy",
+      "category": "openclaw",
       "emoji": "🧩",
       "title": "歯車おもちゃ",
       "description": "OpenClaw＋LINEで作った、歯車を使ったキーホルダーのおもちゃ。回転はまだ滑らかではないが、OpenClawがOpenSCADを動かし、細かい寸法変更や移動・削除の指示に対応。STLですぐ印刷できる。",
       "tweet_url": "https://x.com/syokuninradio/status/2070471688706490836",
       "date": "2026-06-26",
-      "tools": ["OpenClaw", "LINE", "OpenSCAD", "3Dプリンター"],
-      "tags": ["歯車", "キーホルダー", "AI設計"]
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "OpenSCAD",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "歯車",
+        "キーホルダー",
+        "AI設計"
+      ]
     },
     {
       "id": "clock-gear-toy",
+      "category": "openclaw",
       "emoji": "⏱",
       "title": "時計風歯車おもちゃ",
       "description": "駆動歯車を12回転させると針が1周する、中間歯車入りのインボリュート歯車おもちゃ。時計をイメージして、OpenClaw＋LINEとOpenSCADで製作。",
       "tweet_url": "https://x.com/syokuninradio/status/2072569023183884333",
       "date": "2026-07-02",
-      "tools": ["OpenClaw", "LINE", "OpenSCAD", "3Dプリンター"],
-      "tags": ["歯車", "機械要素", "AI設計"]
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "OpenSCAD",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "歯車",
+        "機械要素",
+        "AI設計"
+      ]
     },
     {
       "id": "rack-pinion-lift",
+      "category": "ai-cad",
       "emoji": "⚙",
       "title": "ラック＆ピニオン昇降機風おもちゃ",
       "description": "ClaudeとFusionで作ったラック＆ピニオン昇降機。最初はピニオンを上下のカバーで押さえる構造で、ピニオンがカバーを持ち上げて回らなかったが、その状況を伝えるだけで1チャットで作り直せた。",
       "tweet_url": "https://x.com/syokuninradio/status/2077240782780809422",
       "date": "2026-07-15",
-      "tools": ["Claude", "Autodesk Fusion", "3Dプリンター"],
-      "tags": ["ラック＆ピニオン", "機械要素", "AI設計"]
+      "tools": [
+        "Claude",
+        "Autodesk Fusion",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "ラック＆ピニオン",
+        "機械要素",
+        "AI設計"
+      ]
     },
     {
       "id": "rack-pinion-keychain",
+      "category": "ai-cad",
       "emoji": "⚙",
       "title": "ラック＆ピニオンキーホルダー",
       "description": "Claude×Fusionで、前日の昇降機モデルから数十秒で指定どおりのキーホルダー形状に。いろいろな機械要素をキーホルダーにして、機械の面白さを伝えていきたい。",
       "tweet_url": "https://x.com/syokuninradio/status/2077661343025652125",
       "date": "2026-07-16",
-      "tools": ["Claude", "Autodesk Fusion", "3Dプリンター"],
-      "tags": ["ラック＆ピニオン", "キーホルダー", "CAD"]
+      "tools": [
+        "Claude",
+        "Autodesk Fusion",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "ラック＆ピニオン",
+        "キーホルダー",
+        "CAD"
+      ]
+    },
+    {
+      "id": "grokbot-rubber-band-case",
+      "category": "grokbot",
+      "emoji": "📦",
+      "title": "輪ゴムのケース",
+      "description": "妻に頼まれた「輪ゴムのケース」を、Grok BotにSolid Craftを入れて「輪ゴムを入れる小さい箱が欲しい」と伝えただけでモデリング。外寸70×50×35mm、差し込み式のフタ（すき間は片側0.3mm）、取り出し用の直径22mmの穴まで設計してくれた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2117504102032904420",
+      "date": "2026-11-03",
+      "tools": [
+        "Grok Bot",
+        "Solid Craft"
+      ],
+      "tags": [
+        "便利グッズ",
+        "AI設計"
+      ]
+    },
+    {
+      "id": "chatgpt-work-cam-manual",
+      "category": "ai-cad",
+      "emoji": "📖",
+      "title": "ChatGPT WorkでCAM操作マニュアル",
+      "description": "CAM操作動画＋文字起こしSRT＋完成イメージのPowerPointをChatGPTのWorkに渡したら、ほぼイメージどおりのマニュアルが完成。操作箇所を赤枠で囲う、必要部分を切り出して拡大するなどもAIがやってくれた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2113914940323201172",
+      "date": "2026-10-24",
+      "tools": [
+        "ChatGPT Work",
+        "Fusion CAM",
+        "PowerPoint"
+      ],
+      "tags": [
+        "マニュアル",
+        "技能継承",
+        "製造業DX"
+      ]
+    },
+    {
+      "id": "pcb-inspection-workshop-app",
+      "category": "ai-inspection",
+      "emoji": "📷",
+      "title": "ワークショップ用AIアプリ",
+      "description": "自作基板で「撮影→ラベル付け→学習→推論」まで体験できるワークショップ用AIアプリを作成。精度はまだ低めで、撮影角度を変えてデータを増やすとどこまで改善するか検証中。",
+      "tweet_url": "https://x.com/syokuninradio/status/2111591378316931287",
+      "date": "2026-10-18",
+      "tools": [
+        "画像認識AI"
+      ],
+      "tags": [
+        "AI検査",
+        "ワークショップ",
+        "データ作り"
+      ]
+    },
+    {
+      "id": "pcb-inspection-prototype",
+      "category": "ai-inspection",
+      "emoji": "🔍",
+      "title": "基板はんだ検査機（試作）",
+      "description": "マナビDXクエストのテーマ（電子基板の目視検査をAIに）に触発されて、実際に使える検査機器っぽいものを自作。基板を購入してはんだ付けし、良品・不良品を再現。指先に載るくらい小さい基板でも、画像から判定できた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2111207216703479821",
+      "date": "2026-10-17",
+      "tools": [
+        "画像認識AI",
+        "はんだ付け"
+      ],
+      "tags": [
+        "AI検査",
+        "製造業DX",
+        "画像認識"
+      ]
+    },
+    {
+      "id": "pcb-inspection-f1",
+      "category": "ai-inspection",
+      "emoji": "📊",
+      "title": "簡易AI検査機で20枚を推論（F1 0.81）",
+      "description": "簡易AI検査機を自作し、実際にはんだ付けした基板20枚（良品・ブリッジ・角はんだ・芋はんだ）を推論してF1は0.81。TRAIN画像では100%でも、実環境では撮影角度や照明差の影響が大きかった。次は真上撮影＆条件固定で再検証予定。",
+      "tweet_url": "https://x.com/syokuninradio/status/2111418876282253810",
+      "date": "2026-10-17",
+      "tools": [
+        "画像認識AI"
+      ],
+      "tags": [
+        "AI検査",
+        "画像認識",
+        "F1スコア"
+      ]
+    },
+    {
+      "id": "simple-impeller",
+      "category": "machining",
+      "emoji": "🌀",
+      "title": "簡易インペラ加工",
+      "description": "簡易インペラの加工に成功。CAMでパスを作るのは難しかったが、4軸マシニングとターニングセンタを活用できた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2107423316885827654",
+      "date": "2026-10-06",
+      "tools": [
+        "Fusion CAM",
+        "マシニングセンタ",
+        "ターニングセンタ"
+      ],
+      "tags": [
+        "CAM",
+        "工作機械"
+      ]
+    },
+    {
+      "id": "chatgpt-turning-center-post",
+      "category": "ai-cad",
+      "emoji": "📝",
+      "title": "ChatGPTでターニングセンタ用ポストを自作",
+      "description": "Fusionでは完璧だったのに実機で加工したらワークが崩壊。原因はターニングセンタに別機種用ポストを使っていたこと。ChatGPTと何度も修正してポストを作った。",
+      "tweet_url": "https://x.com/syokuninradio/status/2106142418563399842",
+      "date": "2026-10-03",
+      "tools": [
+        "ChatGPT",
+        "Fusion CAM"
+      ],
+      "tags": [
+        "CAM",
+        "ポスト",
+        "工作機械"
+      ]
+    },
+    {
+      "id": "codex-fusion-cam",
+      "category": "ai-cad",
+      "emoji": "🧭",
+      "title": "Codex×FusionでCAM操作",
+      "description": "Codex×FusionでCAM操作を試したところ、工具経路がちゃんとでき、NCプログラムのポスト処理までやってくれた。次は実加工に挑戦予定。",
+      "tweet_url": "https://x.com/syokuninradio/status/2102362457650106848",
+      "date": "2026-09-22",
+      "tools": [
+        "Codex",
+        "Fusion CAM"
+      ],
+      "tags": [
+        "CAM",
+        "AI設計"
+      ]
+    },
+    {
+      "id": "fusion-codex-stirling",
+      "category": "ai-cad",
+      "emoji": "🛠️",
+      "title": "Fusion×Codexでスターリングエンジン",
+      "description": "Fusion×Codex連携で、スターリングエンジンの図面を渡して「3Dデータを作って、アセンブリして、動いている動画を作って」と伝えただけでここまで完成。1か月無料体験で初めて有料AIに触れた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2101921895147053236",
+      "date": "2026-09-21",
+      "tools": [
+        "Fusion",
+        "Codex"
+      ],
+      "tags": [
+        "スターリングエンジン",
+        "CAD",
+        "AI設計"
+      ]
+    },
+    {
+      "id": "a-axis-indexing",
+      "category": "machining",
+      "emoji": "🔄",
+      "title": "割出加工＋A軸同期加工",
+      "description": "円テーブル付きマシニングセンタで割出加工＋A軸同期加工。うまくいったように見えたが、樹脂でφ1エンドミルを折るミス。φ2などで荒削りするか短いエンドミルなら折れなかったと反省。",
+      "tweet_url": "https://x.com/syokuninradio/status/2096931637288439823",
+      "date": "2026-09-07",
+      "tools": [
+        "Fusion CAM",
+        "マシニングセンタ"
+      ],
+      "tags": [
+        "CAM",
+        "工作機械",
+        "失敗談"
+      ]
+    },
+    {
+      "id": "irodori-voice-clone",
+      "category": "tools",
+      "emoji": "🎙️",
+      "title": "Irodoriでボイスクローン",
+      "description": "ボイスクローンのIrodoriをローカル環境（Ubuntu）でセットアップし、自分そっくりの声を作成。たった4秒の自分の声でできた（8/20投稿）。家族は「抑揚はなくAIっぽいけど私の声」と言っていた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2089319710441763037",
+      "date": "2026-08-17",
+      "tools": [
+        "Irodori",
+        "Ubuntu"
+      ],
+      "tags": [
+        "AI",
+        "ポッドキャスト",
+        "ローカルAI"
+      ]
+    },
+    {
+      "id": "openclaw-rear-curtain",
+      "category": "openclaw",
+      "emoji": "🚗",
+      "title": "後部座席カーテン",
+      "description": "OpenClaw×OpenSCAD×LINEで後部座席カーテンを作成。気休め程度だが日焼け対策になりそうで、すぐ外せるのがポイント。ロッドが壊れないかは心配、と本人コメント。",
+      "tweet_url": "https://x.com/syokuninradio/status/2087117898582299096",
+      "date": "2026-08-11",
+      "tools": [
+        "OpenClaw",
+        "OpenSCAD",
+        "LINE",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "車",
+        "便利グッズ",
+        "AI設計"
+      ]
+    },
+    {
+      "id": "claude-fusion-mcp-rack-lift",
+      "category": "ai-cad",
+      "emoji": "📐",
+      "title": "Claude Desktop×Fusion MCPでラック＆ピニオン昇降機",
+      "description": "Claude DesktopとFusion MCPでラック＆ピニオン昇降機を作成。OpenClaw＋OpenSCADではすぐにできなかったが、12回のチャットでほぼイメージどおりに。OpenClaw×OpenSCADでハイトゲージのようなものも試したが挫折。3Dプリントして動かしたが、滑らかに動かすのは難しかった。",
+      "tweet_url": "https://x.com/syokuninradio/status/2076846757942853830",
+      "date": "2026-07-14",
+      "tools": [
+        "Claude Desktop",
+        "Fusion MCP",
+        "OpenClaw",
+        "OpenSCAD"
+      ],
+      "tags": [
+        "ラック＆ピニオン",
+        "AI設計",
+        "CAD"
+      ]
+    },
+    {
+      "id": "openclaw-first-gear-toy",
+      "category": "openclaw",
+      "emoji": "⚙️",
+      "title": "OpenClawで作った最初の歯車おもちゃ",
+      "description": "OpenClaw＋LINEで歯車を使ったおもちゃを作成。ちゃんと噛み合って回せて、指示するとすぐSTL出力・修正ができる。アイデア出しに最高、とのこと。",
+      "tweet_url": "https://x.com/syokuninradio/status/2069731594735427971",
+      "date": "2026-06-24",
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "歯車",
+        "AI設計"
+      ]
+    },
+    {
+      "id": "openclaw-first-plate",
+      "category": "openclaw",
+      "emoji": "🔩",
+      "title": "OpenClaw初の3Dプリント（M3穴つきプレート）",
+      "description": "LINEのOpenClawに寸法を伝えて作ったモデルを、すぐに3Dプリント。縦60mm・横80mm・厚み4mmの直方体、四隅に角から内側5mmの位置で直径3mm（M3用）の貫通穴4つ。",
+      "tweet_url": "https://x.com/syokuninradio/status/2069371320702484890",
+      "date": "2026-06-23",
+      "tools": [
+        "OpenClaw",
+        "LINE",
+        "3Dプリンター"
+      ],
+      "tags": [
+        "AI設計",
+        "3Dプリンター"
+      ]
+    },
+    {
+      "id": "oamamagoto-dx",
+      "category": "tools",
+      "emoji": "🧾",
+      "title": "おままごとDXセット",
+      "description": "Difyとゲーセンの感熱紙プリンターで作ったおままごとDXセット。子どもに大好評で感熱紙を全部使い切った。",
+      "tweet_url": "https://x.com/syokuninradio/status/2067132087535390993",
+      "date": "2026-06-17",
+      "tools": [
+        "Dify",
+        "感熱紙プリンター"
+      ],
+      "tags": [
+        "家族",
+        "Dify"
+      ]
+    },
+    {
+      "id": "ph-iot-logger",
+      "category": "tools",
+      "emoji": "🧪",
+      "title": "切削液pHの自動記録・通知システム",
+      "description": "ArduinoやAppSheetを使い、水溶性切削液のpH値を自動記録・通知するシステムをゼロから構築（個人開発）。10年放置した液体の測定デモも実施。",
+      "tweet_url": "https://x.com/syokuninradio/status/2059020431093645451",
+      "date": "2026-05-26",
+      "tools": [
+        "Arduino",
+        "AppSheet"
+      ],
+      "tags": [
+        "IoT",
+        "製造業DX",
+        "個人開発"
+      ]
     }
   ]
 }
