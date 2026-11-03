@@ -35,6 +35,11 @@
     .card.purple { box-shadow:6px 6px 0 var(--accent-purple); }
     .card.orange { box-shadow:6px 6px 0 var(--accent-orange); }
     .card.green { box-shadow:6px 6px 0 var(--accent-green); }
+    .card.yellow { box-shadow:6px 6px 0 var(--accent-yellow); }
+    .qualification-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:20px; }
+    .qualification-group { padding:16px 18px; border:1px solid #dce4ea; border-radius:12px; background:#f8fafc; }
+    .qualification-group h4 { margin:0 0 8px; color:#253d4d; }
+    .qualification-group ul { margin:0; padding-left:1.35em; }
     .card h3 { margin:6px 0 10px; font-size:1.4rem; line-height:1.4; }
     .pill { display:inline-block; background:#eff5f8; color:#415261; padding:4px 11px; border-radius:30px; font-size:.8rem; font-weight:800; }
     .card-layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(270px,1fr); gap:24px; align-items:start; }
@@ -55,7 +60,7 @@
     .callout { border:2px dashed var(--accent-orange); background:#fff9df; border-radius:15px; padding:22px; }
     footer { text-align:center; padding:28px 15px; border-top:2px solid #dce4ea; color:var(--text-sub); }
     .small { font-size:.84rem; color:var(--text-sub); }
-    @media(max-width:780px) { .header-container { flex-direction:column; align-items:center; } nav { gap:10px 16px; justify-content:center; } .wrapper { padding:20px 13px 42px; } .hero { padding:34px 22px; } .card { padding:19px; } .card-layout { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } .section-title { font-size:1.4rem; } }
+    @media(max-width:780px) { .header-container { flex-direction:column; align-items:center; } nav { gap:10px 16px; justify-content:center; } .wrapper { padding:20px 13px 42px; } .hero { padding:34px 22px; } .card { padding:19px; } .card-layout { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } .qualification-grid { grid-template-columns:1fr; } .section-title { font-size:1.4rem; } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
 </head>
@@ -156,9 +161,43 @@
         </div>
       </article>
 
+      <article class="card yellow" aria-labelledby="project-qualifications">
+        <span class="pill">資格・技術認定 / 専門性の基盤</span>
+        <h3 id="project-qualifications">04｜保有資格・技術認定</h3>
+        <p>工作機械の技術指導と機械加工を基盤に、電気、AI、CAD、3Dプリンターの知識も学んでいます。</p>
+        <div class="qualification-grid">
+          <div class="qualification-group">
+            <h4>🎓 技術指導・機械加工</h4>
+            <ul>
+              <li>職業訓練指導員免許（機械科）</li>
+              <li>国家技能検定 普通旋盤作業2級</li>
+            </ul>
+          </div>
+          <div class="qualification-group">
+            <h4>⚡ 電気</h4>
+            <ul>
+              <li>第二種電気工事士</li>
+            </ul>
+          </div>
+          <div class="qualification-group">
+            <h4>🤖 AI・デジタル技術</h4>
+            <ul>
+              <li>G検定（オンサイト2025）</li>
+            </ul>
+          </div>
+          <div class="qualification-group">
+            <h4>📐 CAD・3Dプリンター</h4>
+            <ul>
+              <li>3Dプリンター活用技術検定試験 合格</li>
+              <li>3次元CAD利用技術者試験2級</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
       <article class="card green" aria-labelledby="project-machining">
         <span class="pill">技術指導 / ものづくり</span>
-        <h3 id="project-machining">04｜工作機械・CAD/CAM・3Dプリンター</h3>
+        <h3 id="project-machining">05｜工作機械・CAD/CAM・3Dプリンター</h3>
         <p>旋盤、フライス盤、NC旋盤、マシニングセンタなどの加工技術や、安全で確実な作業手順の指導に携わっています。Fusionを使ったモデリング・CAM、3Dプリンターによる試作、NCプログラムの検証にも取り組んでいます。</p>
         <p>現場で「動くこと」と「安心して使えること」は別。工具経路や加工条件の確認を大切にしながら、AIを活用できる範囲を探っています。</p>
       </article>
