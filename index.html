@@ -794,7 +794,7 @@
               🤖 <strong>注目プロジェクト：</strong> OpenClaw ＋ OpenSCAD ＋ LINE を連携させ、AIエージェントが自動設計を行う仕組みを実験中！　ClaudeDesktop＋Fusion MCP連携にも挑戦中！
           </div>
 
-          <div class="lab-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%;">
+          <div id="lab-grid" class="lab-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%;">
     <div class="lab-card" style="box-sizing: border-box; width: 100%; min-width: 0;">
         <h4>📱 スマホケース</h4>
         <blockquote class="twitter-tweet" data-theme="light" data-width="100%">
@@ -933,6 +933,18 @@
  </footer>
 
   <script>
+    // widgets.js は読み込み時に .twitter-tweet を自動描画する。
+    // lab.json が成功したときに静的カードを描き直すと、埋め込みが二重に読み込まれてちらつく。
+    // 先にクラスを外し、最終的なカードが決まってから一度だけ描画する。
+    (function () {
+      var grid = document.getElementById('lab-grid');
+      if (!grid) return;
+      var quotes = grid.querySelectorAll('blockquote.twitter-tweet');
+      for (var i = 0; i < quotes.length; i++) {
+        quotes[i].classList.remove('twitter-tweet');
+        quotes[i].setAttribute('data-lab-fallback', 'true');
+      }
+    })();
     window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
       if (d.getElementById(id)) return t;
@@ -1078,16 +1090,92 @@
           }
       }
 
-      function refreshXEmbed() {
-          if (!window.twttr) return;
-          if (window.twttr.widgets) window.twttr.widgets.load();
-          else window.twttr.ready(twttr => twttr.widgets.load());
+      function isLabTweetUrl(url) {
+          return /^https:\/\/(x|twitter)\.com\/[A-Za-z0-9_]+\/status\/\d+$/.test(url || '');
+      }
+
+      function labHeading(item) {
+          if (typeof item.emoji === 'string' && item.emoji.trim() !== '') {
+              return `${item.emoji} ${item.title}`;
+          }
+          return item.title;
+      }
+
+      function createLabCard(item) {
+          const card = document.createElement('div');
+          card.className = 'lab-card';
+          card.setAttribute('style', 'box-sizing: border-box; width: 100%; min-width: 0;');
+          const heading = document.createElement('h4');
+          heading.textContent = labHeading(item);
+          const quote = document.createElement('blockquote');
+          quote.className = 'twitter-tweet';
+          quote.setAttribute('data-theme', 'light');
+          quote.setAttribute('data-width', '100%');
+          const link = document.createElement('a');
+          link.href = item.tweet_url;
+          link.textContent = 'ポストを読み込み中...';
+          quote.appendChild(link);
+          card.append(heading, quote);
+          return card;
+      }
+
+      function restoreLabFallback(grid) {
+          grid.querySelectorAll('blockquote[data-lab-fallback]').forEach(quote => {
+              quote.classList.add('twitter-tweet');
+              quote.removeAttribute('data-lab-fallback');
+          });
+      }
+
+      function renderLabEmbeds(grid) {
+          try {
+              if (!window.twttr || typeof window.twttr.ready !== 'function') return;
+              window.twttr.ready(twttr => {
+                  try {
+                      if (twttr && twttr.widgets) twttr.widgets.load(grid);
+                  } catch (error) {
+                      console.warn('Xの埋め込みを描画できませんでした:', error);
+                  }
+              });
+          } catch (error) {
+              console.warn('Xの埋め込みを描画できませんでした:', error);
+          }
+      }
+
+      // lab.json から「最近つくったもの」を描画する。description などはカードの見た目が変わるため使わない。
+      // 読めない場合は、あらかじめ置いてある7枚のカードをそのまま表示する。
+      async function loadLab() {
+          const grid = document.getElementById('lab-grid');
+          if (!grid) return;
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 15000);
+          try {
+              const response = await fetch('./lab.json', { cache: 'no-store', signal: controller.signal });
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              const data = await response.json();
+              const items = Array.isArray(data) ? data : data && data.items;
+              if (!Array.isArray(items) || items.length === 0) throw new Error('作品がありません');
+              const valid = items.every(item => item
+                  && typeof item.title === 'string'
+                  && item.title.trim() !== ''
+                  && isLabTweetUrl(item.tweet_url)
+                  && (item.emoji == null || typeof item.emoji === 'string'));
+              if (!valid) throw new Error('lab.json の形式を確認してください');
+              const fragment = document.createDocumentFragment();
+              items.forEach(item => fragment.appendChild(createLabCard(item)));
+              grid.replaceChildren(fragment);
+          } catch (error) {
+              console.warn('lab.json を読み込めなかったため、HTMLのカードを表示します:', error);
+              restoreLabFallback(grid);
+          } finally {
+              clearTimeout(timer);
+          }
+          renderLabEmbeds(grid);
       }
 
       document.addEventListener('DOMContentLoaded', () => {
           showRoom('room-dx');
           loadEpisodes();
-          refreshXEmbed();
+          loadLab();
       });
   </script>
 
