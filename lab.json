@@ -1,0 +1,75 @@
+{
+  "updated": "2026-11-03",
+  "items": [
+    {
+      "id": "smartphone-case",
+      "emoji": "📱",
+      "title": "スマホケース",
+      "description": "3Dプリンターでいつか作りたかったスマホケースを、OpenClaw＋LINEで完成。形はGoogle AI検索で作ったプロンプトから起こし、印刷しながら各ボタンやライトニングケーブルとの干渉を修正。",
+      "tweet_url": "https://x.com/syokuninradio/status/2071451444595823066",
+      "date": "2026-06-29",
+      "tools": ["OpenClaw", "LINE", "3Dプリンター"],
+      "tags": ["3Dプリンター", "AI設計"]
+    },
+    {
+      "id": "involute-gear-toy",
+      "emoji": "⚙️",
+      "title": "インボリュート歯車おもちゃ",
+      "description": "OpenClaw＋LINEで作ったインボリュート歯車のおもちゃ。歯形が長方形だった以前の歯車よりも、だいぶ滑らかに回るようになった。LLMはGemini 3.1 Flash。",
+      "tweet_url": "https://x.com/syokuninradio/status/2071017772361167124",
+      "date": "2026-06-28",
+      "tools": ["OpenClaw", "LINE", "Gemini 3.1 Flash", "3Dプリンター"],
+      "tags": ["歯車", "機械要素", "AI設計"]
+    },
+    {
+      "id": "umbrella-hook",
+      "emoji": "🌂",
+      "title": "傘かけ便利グッズ",
+      "description": "下駄箱に傘を引っかける部品をOpenClaw＋LINEで設計。イメージどおりの形を指示するのは難しかったが、XYZの座標系をきちんと理解して形にしてくれた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2070779800239948190",
+      "date": "2026-06-27",
+      "tools": ["OpenClaw", "LINE", "3Dプリンター"],
+      "tags": ["便利グッズ", "AI設計"]
+    },
+    {
+      "id": "gear-keychain-toy",
+      "emoji": "🧩",
+      "title": "歯車おもちゃ",
+      "description": "OpenClaw＋LINEで作った、歯車を使ったキーホルダーのおもちゃ。回転はまだ滑らかではないが、OpenClawがOpenSCADを動かし、細かい寸法変更や移動・削除の指示に対応。STLですぐ印刷できる。",
+      "tweet_url": "https://x.com/syokuninradio/status/2070471688706490836",
+      "date": "2026-06-26",
+      "tools": ["OpenClaw", "LINE", "OpenSCAD", "3Dプリンター"],
+      "tags": ["歯車", "キーホルダー", "AI設計"]
+    },
+    {
+      "id": "clock-gear-toy",
+      "emoji": "⏱",
+      "title": "時計風歯車おもちゃ",
+      "description": "駆動歯車を12回転させると針が1周する、中間歯車入りのインボリュート歯車おもちゃ。時計をイメージして、OpenClaw＋LINEとOpenSCADで製作。",
+      "tweet_url": "https://x.com/syokuninradio/status/2072569023183884333",
+      "date": "2026-07-02",
+      "tools": ["OpenClaw", "LINE", "OpenSCAD", "3Dプリンター"],
+      "tags": ["歯車", "機械要素", "AI設計"]
+    },
+    {
+      "id": "rack-pinion-lift",
+      "emoji": "⚙",
+      "title": "ラック＆ピニオン昇降機風おもちゃ",
+      "description": "ClaudeとFusionで作ったラック＆ピニオン昇降機。最初はピニオンを上下のカバーで押さえる構造で、ピニオンがカバーを持ち上げて回らなかったが、その状況を伝えるだけで1チャットで作り直せた。",
+      "tweet_url": "https://x.com/syokuninradio/status/2077240782780809422",
+      "date": "2026-07-15",
+      "tools": ["Claude", "Autodesk Fusion", "3Dプリンター"],
+      "tags": ["ラック＆ピニオン", "機械要素", "AI設計"]
+    },
+    {
+      "id": "rack-pinion-keychain",
+      "emoji": "⚙",
+      "title": "ラック＆ピニオンキーホルダー",
+      "description": "Claude×Fusionで、前日の昇降機モデルから数十秒で指定どおりのキーホルダー形状に。いろいろな機械要素をキーホルダーにして、機械の面白さを伝えていきたい。",
+      "tweet_url": "https://x.com/syokuninradio/status/2077661343025652125",
+      "date": "2026-07-16",
+      "tools": ["Claude", "Autodesk Fusion", "3Dプリンター"],
+      "tags": ["ラック＆ピニオン", "キーホルダー", "CAD"]
+    }
+  ]
+}
