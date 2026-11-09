@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03",
+  "updated": "2026-11-09",
   "categories": [
     {
       "id": "openclaw",
@@ -319,7 +319,7 @@
       "category": "ai-cad",
       "emoji": "🛠️",
       "title": "Fusion×Codexでスターリングエンジン",
-      "description": "Fusion×Codex連携で、スターリングエンジンの図面を渡して「3Dデータを作って、アセンブリして、動いている動画を作って」と伝えただけでここまで完成。1か月無料体験で初めて有料AIに触れた。",
+      "description": "Fusion×Codex連携で、スターリングエンジンの図面を渡して「3Dデータを作って、アセンブリして、動いている動画を作って」と伝えただけでここまで完成。1か月無料体験で初めて有料AIに触れた。2026-11-06、放置していたスターリングエンジンの組み立てを開始。以前、FusionとCodexのAstraでモデリングし、部品は3Dプリント、ねじなどはAmazonで購入していた。",
       "tweet_url": "https://x.com/syokuninradio/status/2101921895147053236",
       "date": "2026-09-21",
       "tools": [
