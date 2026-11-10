@@ -69,6 +69,39 @@
     }).join('・');
   }
 
+  function safeDocumentUrl(value) {
+    if (typeof value !== 'string') return '';
+    var raw = value.trim();
+    if (!raw || raw.length > 300 || raw.indexOf('..') !== -1 || /[\s\\<>"']/.test(raw)) return '';
+    if (raw.charAt(0) === '/') {
+      if (raw.charAt(1) === '/') return '';
+      if (!/^\/(?:[A-Za-z0-9._-]+\/)*[A-Za-z0-9._-]+$/.test(raw)) return '';
+      return raw;
+    }
+    try {
+      var url = new URL(raw);
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') return '';
+      if (url.username || url.password) return '';
+      return url.href;
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function documentLink(item) {
+    var doc = item && item.document;
+    var url = '';
+    var label = '';
+    if (typeof doc === 'string') {
+      url = safeDocumentUrl(doc);
+    } else if (doc && typeof doc === 'object') {
+      url = safeDocumentUrl(doc.url || doc.href);
+      label = asText(doc.label).trim();
+    }
+    if (!url) return null;
+    return { url: url, label: label || 'PDF' };
+  }
+
   function createLabCard(item) {
     var card = document.createElement('article');
     card.className = 'lab-card';
@@ -84,6 +117,20 @@
     var tags = stringList(item.tags);
     appendText(card, 'lab-card-tools', tools ? 'ツール：' + tools : '');
     appendText(card, 'lab-card-tags', tags ? 'タグ：' + tags : '');
+
+    var docLink = documentLink(item);
+    if (docLink) {
+      var docRow = document.createElement('p');
+      docRow.className = 'lab-card-doc-row';
+      var doc = document.createElement('a');
+      doc.className = 'lab-card-doc';
+      doc.href = docLink.url;
+      doc.target = '_blank';
+      doc.rel = 'noopener noreferrer';
+      doc.textContent = docLink.label;
+      docRow.appendChild(doc);
+      card.appendChild(docRow);
+    }
 
     var tweetUrl = safeTweetUrl(item.tweet_url);
     if (tweetUrl) {

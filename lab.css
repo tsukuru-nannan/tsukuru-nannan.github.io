@@ -66,6 +66,31 @@ a.room-switch-btn.lab-room-link {
   font-size: 0.95rem;
 }
 
+.lab-card-doc-row {
+  margin: 0 0 8px;
+}
+
+a.lab-card-doc {
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  background: var(--accent-yellow);
+  border: 2px solid var(--text-main);
+  border-radius: 999px;
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--text-main);
+}
+
+a.lab-card-doc:hover {
+  background: var(--bg-white);
+  color: var(--text-main);
+}
+
 @media (max-width: 768px) {
   .lab-entrance-grid.room-switch-grid {
     grid-template-columns: 1fr;
