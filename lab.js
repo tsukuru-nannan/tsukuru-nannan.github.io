@@ -102,6 +102,26 @@
     return { url: url, label: label || 'PDF' };
   }
 
+  function relatedPostLinks(item) {
+    var list = item && item.related_posts;
+    if (!Array.isArray(list)) return [];
+    var embedded = safeTweetUrl(item && item.tweet_url);
+    var links = [];
+    list.forEach(function (entry) {
+      var url = '';
+      var label = '';
+      if (typeof entry === 'string') {
+        url = safeTweetUrl(entry);
+      } else if (entry && typeof entry === 'object') {
+        url = safeTweetUrl(entry.url || entry.tweet_url || entry.href);
+        label = asText(entry.label).trim();
+      }
+      if (!url || url === embedded) return;
+      links.push({ url: url, label: label || '関連投稿' });
+    });
+    return links;
+  }
+
   function createLabCard(item) {
     var card = document.createElement('article');
     card.className = 'lab-card';
@@ -118,18 +138,25 @@
     appendText(card, 'lab-card-tools', tools ? 'ツール：' + tools : '');
     appendText(card, 'lab-card-tags', tags ? 'タグ：' + tags : '');
 
+    var cardLinks = [];
     var docLink = documentLink(item);
-    if (docLink) {
-      var docRow = document.createElement('p');
-      docRow.className = 'lab-card-doc-row';
-      var doc = document.createElement('a');
-      doc.className = 'lab-card-doc';
-      doc.href = docLink.url;
-      doc.target = '_blank';
-      doc.rel = 'noopener noreferrer';
-      doc.textContent = docLink.label;
-      docRow.appendChild(doc);
-      card.appendChild(docRow);
+    if (docLink) cardLinks.push(docLink);
+    relatedPostLinks(item).forEach(function (related) {
+      cardLinks.push(related);
+    });
+    if (cardLinks.length) {
+      var linkRow = document.createElement('p');
+      linkRow.className = 'lab-card-doc-row';
+      cardLinks.forEach(function (cardLink) {
+        var anchor = document.createElement('a');
+        anchor.className = 'lab-card-doc';
+        anchor.href = cardLink.url;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.textContent = cardLink.label;
+        linkRow.appendChild(anchor);
+      });
+      card.appendChild(linkRow);
     }
 
     var tweetUrl = safeTweetUrl(item.tweet_url);
