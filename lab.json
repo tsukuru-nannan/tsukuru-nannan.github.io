@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-22",
   "categories": [
     {
       "id": "openclaw",
@@ -358,6 +358,26 @@
         "CAM",
         "工作機械",
         "失敗談"
+      ]
+    },
+    {
+      "id": "lecture-resume-app",
+      "category": "tools",
+      "emoji": "🎙️",
+      "title": "授業レジュメ自動作成アプリ",
+      "description": "授業の録音から、自分好みのレジュメを作るアプリをCodexで作成。録音や文字起こしを入れると、内容を整理して画像入りのPowerPointにまとめてくれる。今はWhisperの文字起こしをそのまま入れていて、聞き間違いを直す工程はまだ入れていない。",
+      "tweet_url": "https://x.com/syokuninradio/status/2124086000251277796",
+      "date": "2026-11-21",
+      "tools": [
+        "Codex",
+        "Whisper",
+        "PowerPoint"
+      ],
+      "tags": [
+        "AI",
+        "授業",
+        "レジュメ",
+        "文字起こし"
       ]
     },
     {
